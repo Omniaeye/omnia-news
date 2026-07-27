@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from urllib.parse import urlsplit
 import json
 import re
+from .catalog import normalize_metadata
 
 PLATFORMS = frozenset({'github', 'x', 'reddit', 'youtube', 'website', 'news'})
 
@@ -26,8 +27,14 @@ def bounded(value, maximum=256, *, empty=False):
 
 
 def source_url(value):
-    parsed = urlsplit(bounded(value, 2048))
+    value = bounded(value, 2048)
+    if any(character.isspace() or ord(character) < 32 or ord(character) == 127 for character in value):
+        raise ValueError('invalid_source_url')
+    parsed = urlsplit(value)
     if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+        raise ValueError('invalid_source_url')
+    # urlsplit deliberately does not validate ports during parsing.
+    if parsed.port is not None and not 1 <= parsed.port <= 65535:
         raise ValueError('invalid_source_url')
     return value
 
@@ -36,7 +43,7 @@ def normalize(event, max_bytes=65536):
     if not isinstance(event, dict):
         raise ValueError('event_object_required')
     required = {'id', 'platform', 'url', 'author', 'text', 'observed_at'}
-    optional = {'published_at', 'language', 'context'}
+    optional = {'published_at', 'language', 'context', 'metadata'}
     if not required <= set(event) or set(event) - required - optional:
         raise ValueError('invalid_event_fields')
     if len(json.dumps(event, ensure_ascii=False, allow_nan=False).encode()) > max_bytes:
@@ -72,4 +79,6 @@ def normalize(event, max_bytes=65536):
         if not match:
             raise ValueError('invalid_commit_identity')
         out['repository'], out['commit_sha'] = match[1], match[2].lower()
+    out['metadata'] = normalize_metadata(out.get('metadata', {}), platform=out['platform'],
+                                         url_validator=source_url, timestamp_validator=timestamp)
     return out

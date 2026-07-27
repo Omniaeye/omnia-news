@@ -1,3 +1,5 @@
+# Copyright 2026 OMNIA EYE Corporation.
+# SPDX-License-Identifier: Apache-2.0
 import unittest
 from helpers import event
 from omnia_news.contracts import normalize
@@ -46,7 +48,7 @@ class ContractTests(unittest.TestCase):
         self.assertFalse(operational_record('Fix regression abcdef1'))
 
     def test_trailers_are_removed_without_truncation(self):
-        value = 'Fix timeout\n\nSigned-off-by: Example\n' + 'details ' * 500
+        value = 'Fix timeout\n\n' + 'details ' * 500 + '\n\nSigned-off-by: Example'
         self.assertIn('details ' * 400, message(value))
         self.assertNotIn('Signed-off-by:', message(value))
 

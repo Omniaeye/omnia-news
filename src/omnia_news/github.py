@@ -3,17 +3,28 @@
 """Commit identity is preserved; only known bookkeeping formats are suppressible."""
 import re
 
-TRAILER = re.compile(r'^(Signed-off-by|Co-authored-by|Copilot-Session|fbshipit-source-id|PiperOrigin-RevId|Reviewed By|Differential Revision):', re.I)
+TRAILER = re.compile(r'^(Signed-off-by|Co-authored-by|Copilot-Session|fbshipit-source-id|PiperOrigin-RevId|Reviewed By|Reviewed-by|Differential Revision):', re.I)
 HASH_ONLY = re.compile(r'[a-fA-F0-9]{7,64}(?:[\s,;]+[a-fA-F0-9]{7,64})*')
 PATTERNS = (
     r'ci: (?:acquire|release) gh-pages publication turn',
     r'Deploy [a-fA-F0-9]{7,40} to GitHub Pages',
-    r'(?:Update|Regenerate) (?:coverage(?: report| badge)?|generated status|build records)(?: \[[^\]]+\])?',
+    r'(?:Update|Regenerate) (?:coverage(?: report| badge)?|generated status|build records)',
 )
 
 
 def message(value):
-    return '\n'.join(line for line in value.splitlines() if not TRAILER.match(line.strip())).strip()
+    # Only a final paragraph made entirely of known trailers is removable.
+    # A subject, example in the body, or ambiguous/mixed block is preserved.
+    lines = value.splitlines()
+    while lines and not lines[-1].strip():
+        lines.pop()
+    start = len(lines)
+    while start and lines[start - 1].strip():
+        start -= 1
+    block = lines[start:]
+    if start > 0 and any(line.strip() for line in lines[:start]) and block and all(TRAILER.match(line) for line in block):
+        lines = lines[:start]
+    return '\n'.join(lines).strip()
 
 
 def literal_reason(value):

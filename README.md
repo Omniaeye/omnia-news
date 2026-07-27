@@ -1,28 +1,30 @@
 <p align="center"><img src="assets/eye.png" width="112" alt="OMNIA EYE" /></p>
 <h1 align="center">OMNIA NEWS</h1>
-<p align="center"><strong>News in. Decisions with evidence out.</strong></p>
-<p align="center">JEV decision integration · Evidence-first infrastructure</p>
-<p align="center"><a href="#quickstart">Quickstart</a> · <a href="docs/API.md">API</a> · <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/OPERATIONS.md">Operations</a> · <a href="docs/RESEARCH.md">Research</a></p>
+<p align="center"><strong>Control what reaches your feed. Keep the evidence behind the decision.</strong></p>
+<p align="center">Local typed assessments · Explicit publication policy · Durable decision records</p>
+<p align="center"><a href="#quickstart">Quickstart</a> · <a href="docs/API.md">API</a> · <a href="docs/PARAMETERS.md">Parameters</a> · <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
 <p align="center"><a href=".github/workflows/checks.yml"><img alt="Product checks" src="https://github.com/Omniaeye/omnia-news/actions/workflows/checks.yml/badge.svg" /></a> <a href="LICENSE"><img alt="Apache-2.0" src="https://img.shields.io/badge/license-Apache_2.0-63d6bc" /></a></p>
 
 ---
 
-Turn source records into explainable feed decisions. Keep the event, its author, its context and its evidence together. JEV supplies a typed assessment; OMNIA applies a versioned publication policy.
+OMNIA NEWS turns supplied source records into **keep**, **suppress** or **review** decisions. It preserves source attribution, evaluates the information in the primary text, and records the final disposition with its policy, evidence references and timestamps.
+
+The local inference engine is [OMNIA Laya](https://github.com/Omniaeye/omnia-laya). Closed answer types follow the decision-oriented approach discussed in [Research](docs/RESEARCH.md); this package does not call a hosted JEV service. Source collection, source archives and actual publication belong to the consuming application.
 
 | Capability | What it delivers |
 | --- | --- |
-| Source identity | Platform, native event ID, author, URL and observation time |
-| Context | Separately attributed replies, quotes and reposts |
-| GitHub filtering | Commit identity, useful descriptions and narrow bookkeeping suppression |
-| Typed assessment | Two explicit labels, probability distributions and review boundaries |
-| Durable replay | Evidence references, fingerprints and checkpoint provenance |
-| Archive preservation | Feed disposition never deletes the source record |
+| Source contracts | Six platform labels, source ID, author, HTTPS reference and timezone-aware timestamps |
+| Independent attribution | Replies, quotes and reposts retain their own authors and references |
+| Commit handling | Full commit SHA, conservative trailer removal and exact bookkeeping formats |
+| Optional metadata | 32 validated fields for source context, provenance and commit observations |
+| Configurable policy | Probability gate, suppression controls, language allowlist and age-at-observation limit |
+| Durable assessments | Final action, reason, policy, UTC evaluation time, source fingerprints and inference record |
 
 
 ## Decision path
 
 ```text
-Source record --> Identity and attribution --> Typed relevance --> Probability gate --> Feed policy --> Evidence record
+Source record --> Contract + attribution --> Metadata gates --> Typed informativity --> Feed policy --> Persisted assessment
 ```
 
 ## A message is more than a hash
@@ -31,20 +33,17 @@ Source record --> Identity and attribution --> Typed relevance --> Probability g
 provenance. A bare hash carries no explanation. OMNIA keeps that distinction
 explicit instead of treating every technical commit as noise.
 
-The GitHub route removes attribution trailers from the model text while retaining
-the complete source fingerprint. Empty or hash-only messages receive a deterministic
-format decision. Generated bookkeeping requires both a narrow format match and
-an accepted model answer. Free-form text that the model calls noise goes to review.
+Only an unambiguous final block of known attribution trailers is removed from model text. A matching phrase in the subject or body remains intact, and the complete supplied event remains fingerprinted. Empty or hash-only GitHub messages without context can receive a deterministic format decision. Bookkeeping suppression requires both an exact format and an accepted model answer. Arbitrary bracketed explanations remain free-form text and cannot enable automatic suppression.
 
 | Action | Meaning |
 | --- | --- |
-| `keep` | The accepted assessment supports an informative primary text |
-| `suppress` | A literal format or confirmed bookkeeping rule excludes it from the feed |
-| `review` | Probability or evidence does not support automatic routing |
+| `keep` | The accepted answer supports an informative primary text |
+| `suppress` | An enabled literal-format or confirmed bookkeeping rule proposes exclusion |
+| `review` | A source gate, policy control or model assessment requires human/application review |
 
-This evaluates message information. It does not certify the quality, correctness
-or security of the code in a commit. Source fetching and feed publication remain
-owned by the application consuming these records.
+Incomplete text, deleted sources, retractions and unconverted HTML go to review by default, without inference. Policy can also require a supplied language or publication timestamp. An account badge, bot flag, signature claim or advisory severity never proves that a report is true or that code is safe.
+
+This release evaluates **informativity**. It does not implement factual verification, entity extraction, narrative clustering, a news crawler or a publishing service. `preserve_archive: true` tells the caller to retain the original source; it is not an archive implementation.
 
 
 ## Quickstart
@@ -69,23 +68,43 @@ omnia-news --input examples/input.jsonl
 
 Install with `python -m pip install .` when consuming contracts without local
 inference. The optional runtime loads only when an item needs model evaluation.
-Repeated identical requests reuse recorded decisions. The included input is a
-small contract example; replace it with source observations from your adapter.
+Repeated identical requests reuse recorded inference while each evaluation records its final disposition. The included input is a small contract example; replace it with source observations from your adapter.
+
+Run `omnia-news --catalog` to inspect the metadata schema without configuring or loading a model. For large input files, the CLI reports a resumable byte offset at its batch boundary; see [Operations](docs/OPERATIONS.md) for `--offset-bytes` and recovery behavior.
+
+## Choose your policy
+
+```python
+from omnia_news.pipeline import process
+from omnia_news.policy import NewsPolicy
+
+result = process(
+    event, ledger, backend,
+    min_probability=0.90,
+    policy=NewsPolicy(
+        allow_operational_suppression=False,
+        allowed_languages=("en", "pt-BR"),
+        max_age_seconds=86400,
+    ),
+)
+```
+
+Age is measured between the supplied `published_at` and `observed_at`, so replay is stable. The language allowlist checks supplied labels; it does not detect language or switch models. These settings are also available to the CLI through environment variables. See [Parameters](docs/PARAMETERS.md) for exact names, defaults and metadata effects.
 
 
 ## Inspect every decision
 
-Each model record includes source and evidence IDs, input and question fingerprints,
-the pinned checkpoint, runtime source hashes, model answers, probability gates,
-processing time and cache status. Raw input text is not persisted in that ledger.
-Keep source archives separately and protect the ledger as application data.
+Every completed result includes an `assessment_id`, UTC `evaluated_at`, final `action` and `reason`, readable decision notes, the applied policy and fingerprints of the supplied and normalized event. Model-backed results additionally include answers, probability gates, checkpoint provenance, runtime hashes, timing and cache status. Metadata gates can complete with `decision: null` because no model assessment was requested.
+
+Backend failures record a failed final assessment with the exception type before propagating the error. Primary text, context text and free-form metadata values are not copied into the ledger. Identifiers, authors and evidence URLs remain application data: store the ledger privately and retain source archives separately.
 
 | Read next | Purpose |
 | --- | --- |
 | [API](docs/API.md) | Input fields, output semantics and callable interface |
+| [Parameters](docs/PARAMETERS.md) | Executable metadata catalog and policy configuration |
 | [Architecture](docs/ARCHITECTURE.md) | Deterministic checks, model boundary and replay |
 | [Operations](docs/OPERATIONS.md) | Environment, limits, failures and recovery |
-| [Validation](docs/VALIDATION.md) | Executed checks and inference evidence |
+| [Validation](docs/VALIDATION.md) | Validation scope and historical inference evidence |
 | [Research](docs/RESEARCH.md) | Primary sources behind the design |
 
 ## Build and verify
@@ -97,7 +116,8 @@ ruff check src tests tools
 python tools/verify_snapshot.py
 ```
 
-Both products share the reviewed [OMNIA Laya](https://github.com/Omniaeye/omnia-laya)
-integration and connect to the [multichain evidence field](https://github.com/Omniaeye/data-stream-multichain).
-The product code is original OMNIA work. Laya remains the attributed local decision
-engine. [Apache-2.0](LICENSE) · [Notices](THIRD_PARTY_NOTICES.md) · [Security](SECURITY.md)
+The tests cover contracts, deterministic policy, controlled backend responses, persistence and recovery. Regression fixtures are **not model-quality benchmarks**. The earlier `docs/verification.json` receipt describes its recorded version and input; it does not validate later code or prove task accuracy. Calibrate automatic routing against reviewed source samples before deployment.
+
+The product shares its local integration with [OMNIA Trading](https://github.com/Omniaeye/omnia-trading). [Data Stream Multichain](https://github.com/Omniaeye/data-stream-multichain) is a related evidence project; an adapter must supply its observations to this package. No connector is bundled here.
+
+Original OMNIA product code. Laya remains the attributed local decision engine. [Apache-2.0](LICENSE) · [Notices](THIRD_PARTY_NOTICES.md) · [Security](SECURITY.md)
