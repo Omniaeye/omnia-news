@@ -1,0 +1,35 @@
+{
+  "product": "omnia-news",
+  "version": "0.2.0",
+  "verified_at": "2026-09-25T23:58:10.044823+00:00",
+  "python": "3.14.5",
+  "platform": "win32",
+  "unit_tests_passed": 52,
+  "contract_vectors": 400,
+  "checks": {
+    "ruff": "passed",
+    "runtime_snapshot": "passed",
+    "sdist": "passed",
+    "wheel": "passed",
+    "installed_imports": "passed"
+  },
+  "new_model_inference_run": false,
+  "source_sha256": {
+    "src/omnia_news/__init__.py": "4c491471dbe61808e4373e534e84c23e66bbbde04b5c0fce4606fd34453dbd84",
+    "src/omnia_news/__main__.py": "e3aa504b0455be9bb3215837d6541b42b79e833c29e01e43c83a0a2ae36cb62a",
+    "src/omnia_news/_engine/__init__.py": "082677a288ba44a705e93f07c9d4e2784dbc0d4eeb1d0f75fb7c9d288f62bdbe",
+    "src/omnia_news/_engine/ledger.py": "3f8fabeae7d77b81a5a6f52cd2170e3f89a8e84a148d2b781d9459fe2cc57b02",
+    "src/omnia_news/_engine/runtime.py": "167f86aae078ee147a508c5e765391d15a5b6437a0baf675ba8995e76b3f2c3e",
+    "src/omnia_news/catalog.py": "ee04b2c0a44310d925ee7246d9d88b332803e2a66ef9e6748862180f1e836e82",
+    "src/omnia_news/cli.py": "5d5dcce35f1e30ada3684860d664cd33b9cf9a9f31ee72db88e20cf21046914d",
+    "src/omnia_news/config.py": "327cf30434b36b3ff6872bef3ab40eb2aa3b17f2fc7850f6820ca6db6adeb58a",
+    "src/omnia_news/contracts.py": "0937038495ec5a754a437ee2ebd2a430f0597df47a4ca1f30c4c3cc48a4db74c",
+    "src/omnia_news/github.py": "c845efac4ff9a4ec591e5c8c45f3c10769ef1800cf09e490ce4e7df08f285cc0",
+    "src/omnia_news/pipeline.py": "31198004784225b480edde4d32995caffa4d8ab8395673317532e181e6542379",
+    "src/omnia_news/policy.py": "1b921fc98c4187c471ebde983822af5d211da56e723992447ee74e6932d91982",
+    "src/omnia_news/questions.py": "1b1792e0592e4fa3bb6ce684ff68084dbd03faa08de2ada14f9a0879b0def2b5",
+    "src/omnia_news/stream.py": "a7c63b6c5d1961b92ef92d00b47c6f5ab5a8d8af84a98bd36228f9fa741111be"
+  },
+  "scope": "Contract, policy, persistence, concurrency, packaging and recovery verification; no model-quality or throughput benchmark.",
+  "source_hash_format": "SHA-256 of canonical Git file bytes; UTF-8/LF per .gitattributes"
+}
