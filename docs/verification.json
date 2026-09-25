@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-09-25T21:55:05.126753+00:00",
+  "checks": {
+    "tests": "passed",
+    "test_count": 35,
+    "lint": "passed",
+    "snapshot": "passed",
+    "compile": "passed"
+  },
+  "wheel_build_and_isolated_import": "passed",
+  "wheel_sha256": "2c995144b849032ff698d6a0ed174427225ba0ec20c355a4f0b341f466c8e2ed",
+  "inference_scope": "included contract example, not a domain quality benchmark",
+  "backend": {
+    "backend": "laya.local",
+    "laya_version": "0.3.20",
+    "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+    "integration_sha256": "402c19712b0416e5624b09c2f4e40062267e4061aee7adcc841b6a84b5d8e6b6",
+    "configuration": {
+      "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+      "model": "english",
+      "device": "cpu",
+      "threads": 2,
+      "max_len": 512,
+      "head_max_len": 192
+    },
+    "dependencies": {
+      "torch": "2.14.0",
+      "transformers": "5.17.0",
+      "numpy": "2.4.6"
+    },
+    "precision": {
+      "LAYA_CPU_AMP": "",
+      "LAYA_CUDA_AMP": "",
+      "LAYA_MPS_AMP_MIN_ROWS": ""
+    }
+  },
+  "clock": null,
+  "cold_process_seconds": 4.479,
+  "persistent_replay_seconds": 0.004,
+  "disposition": "review",
+  "answers": [
+    {
+      "signal": {
+        "type": "choice",
+        "probabilities": {
+          "keep": 0.7618,
+          "noise": 0.2382
+        },
+        "answer_probability": 0.7618,
+        "choice": "keep",
+        "model_confidence": 0.208
+      }
+    }
+  ],
+  "persistent_cache_hit": true
+}
