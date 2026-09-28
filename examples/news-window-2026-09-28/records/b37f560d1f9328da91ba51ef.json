@@ -1,0 +1,419 @@
+{
+  "publication": {
+    "id": "information:4d1735f286c50f89525ad11369367a52f3afcb7ccbdea007dc0efff1981d3a4a",
+    "platform": "news",
+    "url": "https://stocktwits.com/news-articles/markets/equity/tesla-pushes-roadster-event-to-oct-15-after-storm-forecast-says-it-can-only-be-held-outdoors/cZMjdzSRBXB",
+    "author": "finance.yahoo.com",
+    "observed_at": "2026-09-28T20:35:24.112635Z",
+    "published_at": "2026-09-28T20:20:25Z"
+  },
+  "assessment": {
+    "schema": "omnia.news.intelligence.v1",
+    "source": "omnia.news",
+    "source_event_type": "external_news",
+    "identity": {
+      "key": "news:url:3a9acfbcf804ca2fb7ca5fb40896d1a81c2ffb425868f66347ee184b038f268f",
+      "native_id": null,
+      "canonical_url": "https://stocktwits.com/news-articles/markets/equity/tesla-pushes-roadster-event-to-oct-15-after-storm-forecast-says-it-can-only-be-held-outdoors/cZMjdzSRBXB",
+      "input_id": "information:4d1735f286c50f89525ad11369367a52f3afcb7ccbdea007dc0efff1981d3a4a",
+      "basis": "canonical_url"
+    },
+    "content_version": "129756155e588024a3fd30d02a4440ae79e3aed33066d1b29ffd806075111ae2",
+    "source_input_sha256": "87428d50007d808806526308d1e2b26106b2541728eac32b65412c75ad336047",
+    "source_url": "https://stocktwits.com/news-articles/markets/equity/tesla-pushes-roadster-event-to-oct-15-after-storm-forecast-says-it-can-only-be-held-outdoors/cZMjdzSRBXB",
+    "author": "finance.yahoo.com",
+    "attribution": {
+      "author_reference": "finance.yahoo.com",
+      "identity_kind": "source_label",
+      "source_actor": null,
+      "independently_verified": false
+    },
+    "observed_at": "2026-09-28T20:35:24.112635Z",
+    "published_at": "2026-09-28T20:20:25Z",
+    "evaluated_at": "2026-09-28T21:42:36.095006+00:00",
+    "language": null,
+    "measurements": {
+      "characters": 206,
+      "utf8_bytes": 210,
+      "context_records": 0,
+      "segments": 1
+    },
+    "references": [],
+    "source_issues": [
+      "incomplete_text"
+    ],
+    "tasks": {
+      "relevance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4431,
+          "choice": "informative",
+          "model_confidence": 0.0903,
+          "probabilities": {
+            "informative": 0.4431,
+            "insufficient": 0.4181,
+            "noise": 0.1388
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "event": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.7031,
+          "choice": "launch",
+          "model_confidence": 0.5806,
+          "probabilities": {
+            "incident": 0.013,
+            "launch": 0.7031,
+            "listing": 0.003,
+            "other": 0.0209,
+            "partnership": 0.004,
+            "regulation": 0.0101,
+            "technical": 0.2458
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "claim": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.9703,
+          "choice": "announcement",
+          "model_confidence": 0.904,
+          "probabilities": {
+            "allegation": 0.0067,
+            "announcement": 0.9703,
+            "correction": 0.0149,
+            "insufficient": 0.0049,
+            "opinion": 0.0014,
+            "question": 0.0017
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "tone": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3877,
+          "choice": "negative",
+          "model_confidence": 0.1247,
+          "probabilities": {
+            "insufficient": 0.2246,
+            "mixed": 0.0881,
+            "negative": 0.3877,
+            "neutral": 0.2522,
+            "positive": 0.0474
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "importance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4282,
+          "choice": "routine",
+          "model_confidence": 0.0965,
+          "probabilities": {
+            "insufficient": 0.2415,
+            "project": 0.2525,
+            "routine": 0.4282,
+            "sector": 0.0778
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "urgency": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3589,
+          "choice": "scheduled",
+          "model_confidence": 0.049,
+          "probabilities": {
+            "immediate": 0.2141,
+            "insufficient": 0.124,
+            "none": 0.303,
+            "scheduled": 0.3589
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "promotion": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4436,
+          "choice": "informational",
+          "model_confidence": 0.0938,
+          "probabilities": {
+            "informational": 0.4436,
+            "insufficient": 0.2644,
+            "mixed": 0.0954,
+            "promotional": 0.1966
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "token_reference": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.8755,
+          "choice": "absent",
+          "model_confidence": 0.5802,
+          "probabilities": {
+            "absent": 0.8755,
+            "explicit": 0.055,
+            "possible": 0.0695
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "narrative_object": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4978,
+          "choice": "absent",
+          "model_confidence": 0.27,
+          "probabilities": {
+            "absent": 0.4978,
+            "character": 0.0395,
+            "cultural": 0.088,
+            "person": 0.0359,
+            "product": 0.3388
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "context_dependence": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4969,
+          "choice": "standalone",
+          "model_confidence": 0.0729,
+          "probabilities": {
+            "dependent": 0.1755,
+            "insufficient": 0.3275,
+            "standalone": 0.4969
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      }
+    },
+    "recurrence": {
+      "method": "normalized_exact_text",
+      "text_sha256": "d55090e01914558b15371f94a1707595d6e7dce22394be11600963478c497559",
+      "window_seconds": 21600,
+      "distinct_publications": 1,
+      "distinct_author_references": 1,
+      "author_basis": "source_supplied_identity_not_verified_people",
+      "platforms": [
+        "news"
+      ],
+      "novelty": "first_in_archive",
+      "baseline": "local_assessment_archive_only"
+    },
+    "inference": [
+      {
+        "answers": {
+          "claim": {
+            "answer_probability": 0.9703,
+            "choice": "announcement",
+            "model_confidence": 0.904,
+            "probabilities": {
+              "allegation": 0.0067,
+              "announcement": 0.9703,
+              "correction": 0.0149,
+              "insufficient": 0.0049,
+              "opinion": 0.0014,
+              "question": 0.0017
+            },
+            "type": "choice"
+          },
+          "context_dependence": {
+            "answer_probability": 0.4969,
+            "choice": "standalone",
+            "model_confidence": 0.0729,
+            "probabilities": {
+              "dependent": 0.1755,
+              "insufficient": 0.3275,
+              "standalone": 0.4969
+            },
+            "type": "choice"
+          },
+          "event": {
+            "answer_probability": 0.7031,
+            "choice": "launch",
+            "model_confidence": 0.5806,
+            "probabilities": {
+              "incident": 0.013,
+              "launch": 0.7031,
+              "listing": 0.003,
+              "other": 0.0209,
+              "partnership": 0.004,
+              "regulation": 0.0101,
+              "technical": 0.2458
+            },
+            "type": "choice"
+          },
+          "importance": {
+            "answer_probability": 0.4282,
+            "choice": "routine",
+            "model_confidence": 0.0965,
+            "probabilities": {
+              "insufficient": 0.2415,
+              "project": 0.2525,
+              "routine": 0.4282,
+              "sector": 0.0778
+            },
+            "type": "choice"
+          },
+          "narrative_object": {
+            "answer_probability": 0.4978,
+            "choice": "absent",
+            "model_confidence": 0.27,
+            "probabilities": {
+              "absent": 0.4978,
+              "character": 0.0395,
+              "cultural": 0.088,
+              "person": 0.0359,
+              "product": 0.3388
+            },
+            "type": "choice"
+          },
+          "promotion": {
+            "answer_probability": 0.4436,
+            "choice": "informational",
+            "model_confidence": 0.0938,
+            "probabilities": {
+              "informational": 0.4436,
+              "insufficient": 0.2644,
+              "mixed": 0.0954,
+              "promotional": 0.1966
+            },
+            "type": "choice"
+          },
+          "relevance": {
+            "answer_probability": 0.4431,
+            "choice": "informative",
+            "model_confidence": 0.0903,
+            "probabilities": {
+              "informative": 0.4431,
+              "insufficient": 0.4181,
+              "noise": 0.1388
+            },
+            "type": "choice"
+          },
+          "token_reference": {
+            "answer_probability": 0.8755,
+            "choice": "absent",
+            "model_confidence": 0.5802,
+            "probabilities": {
+              "absent": 0.8755,
+              "explicit": 0.055,
+              "possible": 0.0695
+            },
+            "type": "choice"
+          },
+          "tone": {
+            "answer_probability": 0.3877,
+            "choice": "negative",
+            "model_confidence": 0.1247,
+            "probabilities": {
+              "insufficient": 0.2246,
+              "mixed": 0.0881,
+              "negative": 0.3877,
+              "neutral": 0.2522,
+              "positive": 0.0474
+            },
+            "type": "choice"
+          },
+          "urgency": {
+            "answer_probability": 0.3589,
+            "choice": "scheduled",
+            "model_confidence": 0.049,
+            "probabilities": {
+              "immediate": 0.2141,
+              "insufficient": 0.124,
+              "none": 0.303,
+              "scheduled": 0.3589
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "80ca2dd791968413856b50ff4ee57c2da017b12f0344c5559b26323f50308d1c",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v1"
+        },
+        "evidence": [
+          "https://stocktwits.com/news-articles/markets/equity/tesla-pushes-roadster-event-to-oct-15-after-storm-forecast-says-it-can-only-be-held-outdoors/cZMjdzSRBXB"
+        ],
+        "inference_ms": 5677.397,
+        "input_sha256": "75074134490aa294f9d6f183876d073ffcbfb8a46da88d29d5d52049e4000c68",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T21:31:15.259506+00:00",
+        "questions_sha256": "8fb8b01dde5557b46a74aacccfd8770034d3cb9c1e66d0c883e577e42fae6c23",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:0e71f2771821895bd0f51796ffb4f1ab344459cbb330ff5558b83d8e20e33f40",
+        "status": "accepted",
+        "cache_hit": true
+      }
+    ],
+    "execution_authorized": false,
+    "status": "completed",
+    "assessment_id": "62a63586f99efdc58fec0517125141b5044046acd5e79d78c6a04795ca85b62f"
+  }
+}

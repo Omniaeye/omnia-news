@@ -1,68 +1,90 @@
 # Architecture
 
-Source record --> Contract and attribution --> Metadata gates --> Typed informativity --> Feed policy --> Final assessment
+OMNIA News separates source identity, model inference, acceptance policy and consumption.
 
-## Product and runtime
+```text
+Feed adapter / source record
+        |
+Source contract + publication identity
+        |
+Language routing + attributed input segments
+        |
+Versioned task catalog -> native LAYA -> inference cache
+        |
+Independent task thresholds + source-quality checks
+        |
+Assessment index + recurrence archive
+        |
+Feed policy / explicit token references / trading context
+```
 
-`contracts.py` validates bounded source input. `catalog.py` declares and executes
-the 32 optional metadata contracts. `pipeline.py` prepares versioned questions,
-applies `NewsPolicy`, and persists the final assessment. `_engine` supplies the local ledger
-and Laya adapter; its [snapshot manifest](runtime-snapshot.json) pins exact bytes.
-The snapshot is bundled for independent installation, rather than importing an
-uninstalled example directory from another checkout.
+## Modules
 
-Laya returns closed typed answers. Deterministic code owns identities, arithmetic,
-timestamps, units, thresholds and disposition. Every source string is untrusted
-data. A constrained result schema and conservative policy contain what model
-output can do; neither source text nor model output can invoke tools.
+| Module | Responsibility |
+| --- | --- |
+| `contracts` | Bounded records, source URLs, attribution and timestamps |
+| `catalog` | 43 optional metadata definitions and validation |
+| `identity` | Native publication keys and content versions |
+| `feed_adapter` | Projection of existing feed payloads without network I/O |
+| `assessment_tasks` | Ten atomic questions and default acceptance policy |
+| `news_runtime` | Pinned English/multilingual models and complete input segmentation |
+| `intelligence` | Per-task outcomes, evidence references and persisted lookup |
+| `temporal` | Exact-text recurrence within the local archive |
+| `reference_index`, `query` | Scoped reference search and read-only cached inspection |
+| `trading_context` | Fresh cached assessments for caller-supplied publication links |
+| `batch` | Frozen input, complete outcome accounting and replay |
+| `casebook` | Per-publication exports, CSV tables and integrity verification |
+| `pipeline`, `policy` | Existing informativity filter and feed disposition |
+| `_engine` | Hash-verified shared local inference and ledger snapshot |
 
-## Replay and evidence
+## Cache and persistence
 
-Identity covers the normalized source packet, question and option order, model
-revision, runtime hashes and probability policy. Changes cannot reuse an old
-decision under a new identity. Provider errors are recorded by exception type and
-remain retryable. Successful records retain their original processing timestamps.
+The shared runtime caches question inputs, question/option order, pinned model
+revision and runtime configuration. Intelligence uses a structural inference
+floor of zero, then applies independent thresholds outside that cache. Consumers
+read `tasks.*.status` for acceptance.
 
-The final assessment is separate from the reusable inference decision. It stores
-the routing action, reason, deterministic notes, policy configuration, actual UTC
-evaluation time and inference reference. A cache hit reuses the inference record
-but produces a new final assessment. Backend errors also persist a failed final
-assessment before propagating; no raw provider message is copied into it.
+The SQLite ledger stores inference records and immutable final assessments.
+`news_index` supports publication/version lookup. `news_occurrences` supports
+exact-text recurrence. These are local application tables created only in the
+configured News database, never in the production source database.
 
-`original_input_sha256` hashes the supplied event object as canonical JSON;
-`normalized_source_sha256` hashes the validated source including all metadata.
-Neither is a byte-for-byte hash of the JSONL serialization. Raw primary/context
-text and free-form metadata are not copied into the ledger. The caller owns the
-source archive and joins it to fingerprints and source identifiers.
+Model execution happens outside the shared ledger's transaction. Expiring claims
+allow retries after a process failure. A crashed computation may repeat; only a
+valid claim owner commits its result. Independent database files do not provide
+distributed deduplication. Each worker owns its connection.
 
-The SQLite WAL ledger uses short transactions to claim a decision identity and
-commit its result. Inference runs outside a database transaction, so independent
-identities and cached reads need not wait for another model call. Each worker owns
-its connection. Claims expire to permit recovery after process failure; ownership
-is rechecked before commit so an expired worker cannot publish a late result.
-Computation may repeat after a crash or lease expiry. There is no background queue:
-the caller retains input and schedules retries with backoff. Separate database
-files do not provide distributed deduplication.
+Original text belongs to the caller's source archive. The assessment records its
+hash, identity, references, task answers and model provenance. Casebook exports
+preserve those references without copying complete source articles.
 
-## Product boundary
+## Attribution and identity
 
-Context records keep their own author and relationship. Only the primary text receives the relevance verdict. Suppression changes a proposed feed disposition; it never deletes archive data or publishes directly.
+Primary text and quoted/replied-to text remain separate. A regex match includes
+its source scope and character offsets. Token names, cashtags and address-shaped
+strings remain observed references until another component establishes identity.
+The trading context API labels a URL association as caller-supplied, not official
+affiliation or author endorsement.
 
-Metadata is adapter-reported data, not verification. Eight compact flags/enums/counts
-may enter model context; deterministic gates can route incomplete, deleted,
-retracted or HTML source records directly to review. Other metadata is validated
-and fingerprinted for provenance, with its exact role documented in [Parameters](PARAMETERS.md).
+The News package supports explicit Robinhood, BSC and Solana context identities.
+News evaluation itself remains chain-independent. A contract on one network is
+not merged with the same address on another network.
 
-GitHub trailer removal only recognizes a final paragraph entirely made of known
-trailers, with a preceding nonempty message and paragraph separator. Subject/body
-examples and mixed or ambiguous blocks remain intact. Bookkeeping recognition
-uses exact formats; arbitrary bracket suffixes are not whitelisted.
+## Two consumer paths
 
-Source URLs are references only and are never fetched. The package does not prove
-source authenticity, verify facts, validate commit signatures, extract entities,
-cluster narratives or implement a connection to external collectors. These require
-separate, explicitly tested application components.
+The original `process` API proposes `keep`, `suppress` or `review` based on a narrow
+informativity policy. Its source and model contracts remain compatible.
 
-Probability is evaluated per task and must be calibrated against reviewed data.
-The runtime keeps upstream entropy-based confidence separate from maximum answer
-probability. Token budgets are checked with the selected tokenizer before inference.
+The `assess` API produces ten independent intelligence dimensions. It does not
+publish a post, replace the feed's existing rules or authorize a trading order.
+The consuming application selects the dimensions and freshness policy it needs.
+
+## Model boundary
+
+JEV/LAYA answers closed typed questions. Code controls identity, timestamps,
+counting, cache keys, limits, thresholds and evidence references. Source strings
+are untrusted input. Neither source text nor model output invokes tools or URLs.
+
+Classification is not factual verification. The package extracts explicit textual
+references and exact-text recurrence; open-ended named-entity extraction and
+semantic narrative clustering are not inferred from those features.

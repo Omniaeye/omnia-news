@@ -1,0 +1,419 @@
+{
+  "publication": {
+    "id": "information:cb127831b7bb912c90d1b2b068a01bf40a94e26fb0b7a480e8333d3342e4b5f2",
+    "platform": "news",
+    "url": "https://finance.yahoo.com/technology/ai/articles/trane-technologies-expands-system-architecture-203000710.html",
+    "author": "finance.yahoo.com",
+    "observed_at": "2026-09-28T20:48:24.360437Z",
+    "published_at": "2026-09-28T20:30:00Z"
+  },
+  "assessment": {
+    "schema": "omnia.news.intelligence.v1",
+    "source": "omnia.news",
+    "source_event_type": "external_news",
+    "identity": {
+      "key": "news:url:46643bccee0180f7a3fa612b57df8490fa9a2ce6a570fb61780a10a272ac3d36",
+      "native_id": null,
+      "canonical_url": "https://finance.yahoo.com/technology/ai/articles/trane-technologies-expands-system-architecture-203000710.html",
+      "input_id": "information:cb127831b7bb912c90d1b2b068a01bf40a94e26fb0b7a480e8333d3342e4b5f2",
+      "basis": "canonical_url"
+    },
+    "content_version": "9bc8e8c16e83ec80ef873a412f2dead5cc1160ef776f901e6620ad33e5a00cca",
+    "source_input_sha256": "c525aed307532583ddb193468da35f06dd14d517f32b19c95fde172886242237",
+    "source_url": "https://finance.yahoo.com/technology/ai/articles/trane-technologies-expands-system-architecture-203000710.html",
+    "author": "finance.yahoo.com",
+    "attribution": {
+      "author_reference": "finance.yahoo.com",
+      "identity_kind": "source_label",
+      "source_actor": null,
+      "independently_verified": false
+    },
+    "observed_at": "2026-09-28T20:48:24.360437Z",
+    "published_at": "2026-09-28T20:30:00Z",
+    "evaluated_at": "2026-09-28T21:42:39.552007+00:00",
+    "language": null,
+    "measurements": {
+      "characters": 515,
+      "utf8_bytes": 515,
+      "context_records": 0,
+      "segments": 1
+    },
+    "references": [],
+    "source_issues": [
+      "incomplete_text"
+    ],
+    "tasks": {
+      "relevance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4996,
+          "choice": "insufficient",
+          "model_confidence": 0.0922,
+          "probabilities": {
+            "informative": 0.3521,
+            "insufficient": 0.4996,
+            "noise": 0.1483
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "event": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.6164,
+          "choice": "technical",
+          "model_confidence": 0.5907,
+          "probabilities": {
+            "incident": 0.0012,
+            "launch": 0.3575,
+            "listing": 0.006,
+            "other": 0.0056,
+            "partnership": 0.0115,
+            "regulation": 0.0018,
+            "technical": 0.6164
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "claim": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.9869,
+          "choice": "announcement",
+          "model_confidence": 0.9523,
+          "probabilities": {
+            "allegation": 0.0009,
+            "announcement": 0.9869,
+            "correction": 0.0032,
+            "insufficient": 0.0074,
+            "opinion": 0.0007,
+            "question": 0.0009
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "tone": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4875,
+          "choice": "positive",
+          "model_confidence": 0.1619,
+          "probabilities": {
+            "insufficient": 0.1782,
+            "mixed": 0.144,
+            "negative": 0.039,
+            "neutral": 0.1512,
+            "positive": 0.4875
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "importance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4977,
+          "choice": "project",
+          "model_confidence": 0.1467,
+          "probabilities": {
+            "insufficient": 0.1057,
+            "project": 0.4977,
+            "routine": 0.1071,
+            "sector": 0.2895
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "urgency": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.463,
+          "choice": "none",
+          "model_confidence": 0.122,
+          "probabilities": {
+            "immediate": 0.0815,
+            "insufficient": 0.1648,
+            "none": 0.463,
+            "scheduled": 0.2908
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "promotion": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4161,
+          "choice": "promotional",
+          "model_confidence": 0.0563,
+          "probabilities": {
+            "informational": 0.1932,
+            "insufficient": 0.244,
+            "mixed": 0.1468,
+            "promotional": 0.4161
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "token_reference": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3801,
+          "choice": "explicit",
+          "model_confidence": 0.0093,
+          "probabilities": {
+            "absent": 0.2692,
+            "explicit": 0.3801,
+            "possible": 0.3507
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "narrative_object": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.7195,
+          "choice": "product",
+          "model_confidence": 0.4449,
+          "probabilities": {
+            "absent": 0.1694,
+            "character": 0.019,
+            "cultural": 0.0577,
+            "person": 0.0344,
+            "product": 0.7195
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "context_dependence": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4682,
+          "choice": "standalone",
+          "model_confidence": 0.0356,
+          "probabilities": {
+            "dependent": 0.2745,
+            "insufficient": 0.2573,
+            "standalone": 0.4682
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      }
+    },
+    "recurrence": {
+      "method": "normalized_exact_text",
+      "text_sha256": "6799fa1d417c11f1088f366dcb83039704f7b7dd36fa5b2327147c4874320252",
+      "window_seconds": 21600,
+      "distinct_publications": 1,
+      "distinct_author_references": 1,
+      "author_basis": "source_supplied_identity_not_verified_people",
+      "platforms": [
+        "news"
+      ],
+      "novelty": "first_in_archive",
+      "baseline": "local_assessment_archive_only"
+    },
+    "inference": [
+      {
+        "answers": {
+          "claim": {
+            "answer_probability": 0.9869,
+            "choice": "announcement",
+            "model_confidence": 0.9523,
+            "probabilities": {
+              "allegation": 0.0009,
+              "announcement": 0.9869,
+              "correction": 0.0032,
+              "insufficient": 0.0074,
+              "opinion": 0.0007,
+              "question": 0.0009
+            },
+            "type": "choice"
+          },
+          "context_dependence": {
+            "answer_probability": 0.4682,
+            "choice": "standalone",
+            "model_confidence": 0.0356,
+            "probabilities": {
+              "dependent": 0.2745,
+              "insufficient": 0.2573,
+              "standalone": 0.4682
+            },
+            "type": "choice"
+          },
+          "event": {
+            "answer_probability": 0.6164,
+            "choice": "technical",
+            "model_confidence": 0.5907,
+            "probabilities": {
+              "incident": 0.0012,
+              "launch": 0.3575,
+              "listing": 0.006,
+              "other": 0.0056,
+              "partnership": 0.0115,
+              "regulation": 0.0018,
+              "technical": 0.6164
+            },
+            "type": "choice"
+          },
+          "importance": {
+            "answer_probability": 0.4977,
+            "choice": "project",
+            "model_confidence": 0.1467,
+            "probabilities": {
+              "insufficient": 0.1057,
+              "project": 0.4977,
+              "routine": 0.1071,
+              "sector": 0.2895
+            },
+            "type": "choice"
+          },
+          "narrative_object": {
+            "answer_probability": 0.7195,
+            "choice": "product",
+            "model_confidence": 0.4449,
+            "probabilities": {
+              "absent": 0.1694,
+              "character": 0.019,
+              "cultural": 0.0577,
+              "person": 0.0344,
+              "product": 0.7195
+            },
+            "type": "choice"
+          },
+          "promotion": {
+            "answer_probability": 0.4161,
+            "choice": "promotional",
+            "model_confidence": 0.0563,
+            "probabilities": {
+              "informational": 0.1932,
+              "insufficient": 0.244,
+              "mixed": 0.1468,
+              "promotional": 0.4161
+            },
+            "type": "choice"
+          },
+          "relevance": {
+            "answer_probability": 0.4996,
+            "choice": "insufficient",
+            "model_confidence": 0.0922,
+            "probabilities": {
+              "informative": 0.3521,
+              "insufficient": 0.4996,
+              "noise": 0.1483
+            },
+            "type": "choice"
+          },
+          "token_reference": {
+            "answer_probability": 0.3801,
+            "choice": "explicit",
+            "model_confidence": 0.0093,
+            "probabilities": {
+              "absent": 0.2692,
+              "explicit": 0.3801,
+              "possible": 0.3507
+            },
+            "type": "choice"
+          },
+          "tone": {
+            "answer_probability": 0.4875,
+            "choice": "positive",
+            "model_confidence": 0.1619,
+            "probabilities": {
+              "insufficient": 0.1782,
+              "mixed": 0.144,
+              "negative": 0.039,
+              "neutral": 0.1512,
+              "positive": 0.4875
+            },
+            "type": "choice"
+          },
+          "urgency": {
+            "answer_probability": 0.463,
+            "choice": "none",
+            "model_confidence": 0.122,
+            "probabilities": {
+              "immediate": 0.0815,
+              "insufficient": 0.1648,
+              "none": 0.463,
+              "scheduled": 0.2908
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "43bd5c856270855fe007292a0ed0e49de35599d11e0615e2b56f580f77798bc0",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v1"
+        },
+        "evidence": [
+          "https://finance.yahoo.com/technology/ai/articles/trane-technologies-expands-system-architecture-203000710.html"
+        ],
+        "inference_ms": 7334.046,
+        "input_sha256": "3b3258786d42a665ad1b2239b46d78fdca4fd3f4fca8b54d8a79871d20369ac1",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T21:30:32.644008+00:00",
+        "questions_sha256": "8fb8b01dde5557b46a74aacccfd8770034d3cb9c1e66d0c883e577e42fae6c23",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:b5229b82482f5a1d90f2610b4c46ab86bdc9949783dfd174c4f8c99067abc20f",
+        "status": "accepted",
+        "cache_hit": true
+      }
+    ],
+    "execution_authorized": false,
+    "status": "completed",
+    "assessment_id": "6a602a5cf17e770e542a55f28c92aa576955432f2c8f5dd0b3b7dd94eb318160"
+  }
+}

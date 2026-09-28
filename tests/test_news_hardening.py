@@ -58,7 +58,7 @@ class NewsHardeningTests(unittest.TestCase):
         self.assertEqual(result['context_provenance'][0]['author'], 'other-author')
 
     def test_catalog_and_invalid_typed_metadata(self):
-        self.assertEqual(len(parameter_catalog()['fields']), 32)
+        self.assertEqual(len(parameter_catalog()['fields']), 43)
         catalog = parameter_catalog()
         catalog['fields']['title']['max_length'] = 99999
         self.assertEqual(FIELDS['title']['max_length'], 300)

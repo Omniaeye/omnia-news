@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+- Add ten per-task news assessments, native probabilities and independent acceptance gates.
+- Add publication identities, attributed references, versioned cache lookup and token-context retrieval.
+- Route English and multilingual inputs through pinned checkpoints with bounded lossless segmentation.
+- Add frozen batches, complete outcome records and verifiable publication casebooks.
+- Extend metadata to 43 fields, including missing context, source attribution and observed engagement.
+- Protect current cache entries from older replay and preserve operational-event and collection-limit gates.
+- Preserve the existing feed-filtering interface and shared runtime snapshot.
+
 ## 0.2.0
 
 - Executable parameter catalog, explicit notes and bounded evidence context.

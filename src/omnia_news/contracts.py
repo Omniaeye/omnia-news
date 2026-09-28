@@ -39,7 +39,7 @@ def source_url(value):
     return value
 
 
-def normalize(event, max_bytes=65536):
+def normalize(event, max_bytes=65536, *, max_text=20000):
     if not isinstance(event, dict):
         raise ValueError('event_object_required')
     required = {'id', 'platform', 'url', 'author', 'text', 'observed_at'}
@@ -51,7 +51,7 @@ def normalize(event, max_bytes=65536):
     out = deepcopy(event)
     bounded(out['id'], 200)
     bounded(out['author'])
-    bounded(out['text'], 20000, empty=True)
+    bounded(out['text'], max_text, empty=True)
     if out['platform'] not in PLATFORMS:
         raise ValueError('unsupported_platform')
     source_url(out['url'])
@@ -77,8 +77,13 @@ def normalize(event, max_bytes=65536):
     if out['platform'] == 'github':
         match = re.fullmatch(r'https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)/commit/([a-fA-F0-9]{40})', out['url'])
         if not match:
-            raise ValueError('invalid_commit_identity')
-        out['repository'], out['commit_sha'] = match[1], match[2].lower()
+            kind = out.get('metadata', {}).get('source_kind')
+            other = re.fullmatch(r'https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)/(releases/tag/[^/?#]+|issues/\d+|pull/\d+)', out['url'])
+            if other is None or kind not in {'release', 'comment', 'advisory'}:
+                raise ValueError('invalid_commit_identity')
+            out['repository'] = other[1]
+        else:
+            out['repository'], out['commit_sha'] = match[1], match[2].lower()
     out['metadata'] = normalize_metadata(out.get('metadata', {}), platform=out['platform'],
                                          url_validator=source_url, timestamp_validator=timestamp)
     return out

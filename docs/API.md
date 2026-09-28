@@ -1,5 +1,9 @@
 # News API
 
+For ten-task assessments, publication identity, cached lookup and token context,
+use the [Intelligence API](INTELLIGENCE.md). The interface below is the existing
+feed-filtering API and retains its original policy and input bounds.
+
 `process(event, ledger, backend, min_probability=0.8, max_bytes=65536, policy=None)` returns
 `omnia.news.decision.v1`. The backend is callable `(state, questions)` and exposes
 `manifest()`; use the bundled `LocalLaya` for actual inference. `ledger` is the

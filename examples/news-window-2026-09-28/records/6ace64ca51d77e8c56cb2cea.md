@@ -1,0 +1,36 @@
+# X publication
+
+<a href="https://x.com/i/status/2104668086418776443">Original publication</a> · [Complete assessment](6ace64ca51d77e8c56cb2cea.json) · [Batch index](../README.md)
+
+Observed: 2026-09-28T20:22:29.612464+00:00
+
+| Dimension | Answer | Probability | Acceptance threshold | Status |
+| --- | --- | ---: | ---: | --- |
+| relevance | insufficient | 0.4378 | 0.80 | insufficient |
+| event | launch | 0.8444 | 0.80 | accepted |
+| claim | announcement | 0.9767 | 0.80 | accepted |
+| tone | mixed | 0.2733 | 0.80 | needs_review |
+| importance | project | 0.4976 | 0.80 | needs_review |
+| urgency | none | 0.5361 | 0.80 | needs_review |
+| promotion | promotional | 0.7776 | 0.80 | needs_review |
+| token_reference | absent | 0.4070 | 0.80 | needs_review |
+| narrative_object | product | 0.5869 | 0.80 | needs_review |
+| context_dependence | insufficient | 0.4650 | 0.80 | insufficient |
+
+## Source measurements
+
+| Measurement | Value |
+| --- | ---: |
+| characters | 94 |
+| utf8_bytes | 94 |
+| context_records | 0 |
+| segments | 1 |
+| author_followers | 12599 |
+
+## Evidence and context
+
+Source issues: None recorded.
+
+The JSON record preserves reference scope, native distributions, model revision, input hashes and cached-inference receipts.
+
+A configured acceptance threshold is distinct from measured accuracy.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omnia-news"
-version = "0.2.0"
+version = "0.3.0"
 description = "Evidence-linked news decisions with local typed inference"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,6 +18,8 @@ local = ["laya @ git+https://github.com/Omniaeye/omnia-laya.git@256eaf39550291de
 
 [project.scripts]
 omnia-news = "omnia_news.cli:main"
+omnia-news-batch = "omnia_news.batch:main"
+omnia-news-query = "omnia_news.query:main"
 
 [project.urls]
 Repository = "https://github.com/Omniaeye/omnia-news"

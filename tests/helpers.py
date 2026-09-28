@@ -22,3 +22,22 @@ class Backend:
         self.inputs.append(state)
         return {'answers': {'signal': {'type': 'choice', 'choice': self.choice,
                 'probabilities': {key: self.chance if key == self.choice else 1 - self.chance for key in ('keep', 'noise')}}}}
+
+
+class TypedBackend:
+    def __init__(self):
+        self.calls = 0
+
+    def manifest(self):
+        return {'backend': 'controlled_contract_test', 'version': 1}
+
+    def __call__(self, state, questions):
+        self.calls += 1
+        answers = {}
+        for name, task in questions.items():
+            keys = list(task['criteria'])
+            p = .6 if name == 'tone' else .95
+            rest = (1-p)/(len(keys)-1)
+            answers[name] = {'type': 'choice', 'choice': keys[0],
+                             'probabilities': {k: p if i == 0 else rest for i, k in enumerate(keys)}}
+        return {'answers': answers}

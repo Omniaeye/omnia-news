@@ -115,3 +115,34 @@ and operational suppression and review incomplete, deleted, retracted or HTML
 sources. `OMNIA_NEWS_ALLOWED_LANGUAGES` is an optional comma-separated allowlist.
 `OMNIA_NEWS_MAX_AGE_SECONDS` is optional; it compares publication to observation,
 not to the wall clock. See [parameter contracts](PARAMETERS.md) for all metadata.
+
+
+## Intelligence batches
+
+Use a dedicated `OMNIA_NEWS_DATABASE`. Collection databases remain read-only sources.
+The batch command accepts normalized JSONL, or an existing feed export with
+`--capture`. It makes no collector request and submits no order.
+
+```bash
+omnia-news-batch --input sources.jsonl --output var/news/window
+omnia-news-batch --input sources.jsonl --output var/news/window --thresholds thresholds.json
+```
+
+The second invocation reuses the same frozen source batch. A different input hash
+is rejected. Successful inference is reused; failed inference remains retryable.
+Keep `results.partial.jsonl` after interruption. Rerunning the command reconstructs
+the complete results file while retaining the inference cache.
+
+The intelligence router chooses English or multilingual based on supplied language
+and text/script analysis. Both models are pinned to `OMNIA_LAYA_REVISION`. They may
+remain resident together; provision memory for both checkpoints. An unavailable
+checkpoint produces an explicit error rather than an English-only fallback.
+
+`OMNIA_LAYA_THREADS`, `OMNIA_LAYA_DEVICE` and `OMNIA_NEWS_MAX_RECORDS` apply to batches.
+The legacy `OMNIA_LAYA_MIN_PROBABILITY` configures the legacy filter. Intelligence
+thresholds come from its task catalog or `--thresholds`, independently.
+
+Do not treat a high cache-hit rate as model accuracy. Use the native batch summary
+for inference/coverage and an independently labeled evaluation for precision.
+Public source namespaces are OMNIA; raw transport provenance stays in the source
+archive and is never rewritten by the public exporter.

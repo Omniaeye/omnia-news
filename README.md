@@ -1,61 +1,77 @@
 <p align="center"><img src="assets/eye.png" width="112" alt="OMNIA EYE" /></p>
 <h1 align="center">OMNIA NEWS</h1>
-<p align="center"><strong>Control what reaches your feed. Keep the evidence behind the decision.</strong></p>
-<p align="center">Local typed assessments · Explicit publication policy · Durable decision records</p>
-<p align="center"><a href="#quickstart">Quickstart</a> · <a href="docs/API.md">API</a> · <a href="docs/PARAMETERS.md">Parameters</a> · <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
-<p align="center"><a href=".github/workflows/checks.yml"><img alt="Product checks" src="https://github.com/Omniaeye/omnia-news/actions/workflows/checks.yml/badge.svg" /></a> <a href="LICENSE"><img alt="Apache-2.0" src="https://img.shields.io/badge/license-Apache_2.0-63d6bc" /></a></p>
+<p align="center"><strong>News intelligence. Reusable decisions.</strong></p>
+<p align="center">JEV/LAYA &middot; Source context &middot; Persistent assessments</p>
+<p align="center"><a href="#assessments">Assessments</a> &middot; <a href="#quickstart">Quickstart</a> &middot; <a href="docs/INTELLIGENCE.md">Intelligence API</a> &middot; <a href="docs/PARAMETERS.md">Parameters</a> &middot; <a href="docs/CONFIDENCE.md">Confidence</a></p>
+<p align="center"><a href=".github/workflows/checks.yml"><img alt="Product checks" src="https://github.com/Omniaeye/omnia-news/actions/workflows/checks.yml/badge.svg" /></a></p>
 
 ---
 
-OMNIA NEWS turns supplied source records into **keep**, **suppress** or **review** decisions. It preserves source attribution, evaluates the information in the primary text, and records the final disposition with its policy, evidence references and timestamps.
+OMNIA NEWS evaluates source content and stores the result against the original publication. A feed, token view or trading application can retrieve the same assessment without repeating inference.
 
-The local inference engine is [OMNIA Laya](https://github.com/Omniaeye/omnia-laya). Closed answer types follow the decision-oriented approach discussed in [Research](docs/RESEARCH.md); this package does not call a hosted JEV service. Source collection, source archives and actual publication belong to the consuming application.
+The package combines ten JEV/LAYA judgments, 43 optional metadata fields, attributed reply and quote context, publication identity, and a persistent decision ledger. The local engine runs through [OMNIA Laya](https://github.com/Omniaeye/omnia-laya).
 
-| Capability | What it delivers |
-| --- | --- |
-| Source contracts | Six platform labels, source ID, author, HTTPS reference and timezone-aware timestamps |
-| Independent attribution | Replies, quotes and reposts retain their own authors and references |
-| Commit handling | Full commit SHA, conservative trailer removal and exact bookkeeping formats |
-| Optional metadata | 32 validated fields for source context, provenance and commit observations |
-| Configurable policy | Probability gate, suppression controls, language allowlist and age-at-observation limit |
-| Durable assessments | Final action, reason, policy, UTC evaluation time, source fingerprints and inference record |
+## Source window
 
+**500 source records. 5,530 native answers. Complete records for every assessment.**
 
-## Decision path
+The September 28 casebook covers 273 X records, 219 GitHub records and eight news
+excerpts. Every task retains its answer, probability, acceptance result and source
+reference. Replaying all 553 text/segment evaluations reused the cache without a
+new model call.
+
+[Inspect the records](examples/news-window-2026-09-28/README.md) · [Read the results](docs/READING_THE_RESULTS.md) · [Measurements and acceptance](docs/VALIDATION.md#native-source-window--28-september-2026)
+
+## Assessments
+
+| Dimension | Answers | Application |
+| --- | --- | --- |
+| Relevance | Informative, noise, insufficient | Prioritize understandable information |
+| Event | Launch, partnership, listing, incident, regulation, technical, other | Organize the reported event |
+| Claim | Announcement, opinion, question, allegation, correction, insufficient | Distinguish a report from an author's interpretation |
+| Tone | Positive, negative, neutral, mixed, insufficient | Describe the primary text's overall tone |
+| Importance | Routine, project, sector, insufficient | Assess the scope explicitly described |
+| Urgency | Immediate, scheduled, none, insufficient | Identify time-sensitive statements |
+| Promotion | Promotional, informational, mixed, insufficient | Separate reporting and solicitation |
+| Token reference | Explicit, possible, absent | Identify text that needs asset resolution |
+| Narrative subject | Character, person, product, cultural, absent | Identify a narrative category, including mascots and pets |
+| Context dependence | Standalone, dependent, insufficient | Identify content that relies on another publication |
+
+Each dimension has its own answer, probability distribution and acceptance threshold. A weak tone assessment does not invalidate a strong relevance assessment. `accepted`, `needs_review`, `insufficient` and `failed` describe each task independently.
+
+Importance describes the reported event. It is not a forecast of price movement. Narrative subject classifies a category; it does not invent a name or resolve an asset from a ticker.
+
+## Publication to application
 
 ```text
-Source record --> Contract + attribution --> Metadata gates --> Typed informativity --> Feed policy --> Persisted assessment
+Source + attributed context
+          |
+Publication identity and content version
+          |
+Language routing and bounded model input
+          |
+Ten independent JEV/LAYA assessments
+          |
+Persistent cache + per-task policy
+          |
+Feed context / token references / trading context
 ```
 
-## A message is more than a hash
+X posts use their native post ID. YouTube videos use their video ID. GitHub commits include the repository and full SHA; release, issue and pull-request URLs are supported explicitly. Reddit posts and comments have separate identities. Websites use a canonical URL and content version. Handles remain author references, not publication keys.
 
-`Fix retry after timeout abc1234` describes a change. Its identifier is useful
-provenance. A bare hash carries no explanation. OMNIA keeps that distinction
-explicit instead of treating every technical commit as noise.
-
-Only an unambiguous final block of known attribution trailers is removed from model text. A matching phrase in the subject or body remains intact, and the complete supplied event remains fingerprinted. Empty or hash-only GitHub messages without context can receive a deterministic format decision. Bookkeeping suppression requires both an exact format and an accepted model answer. Arbitrary bracketed explanations remain free-form text and cannot enable automatic suppression.
-
-| Action | Meaning |
-| --- | --- |
-| `keep` | The accepted answer supports an informative primary text |
-| `suppress` | An enabled literal-format or confirmed bookkeeping rule proposes exclusion |
-| `review` | A source gate, policy control or model assessment requires human/application review |
-
-Incomplete text, deleted sources, retractions and unconverted HTML go to review by default, without inference. Policy can also require a supplied language or publication timestamp. An account badge, bot flag, signature claim or advisory severity never proves that a report is true or that code is safe.
-
-This release evaluates **informativity**. It does not implement factual verification, entity extraction, narrative clustering, a news crawler or a publishing service. `preserve_archive: true` tells the caller to retain the original source; it is not an archive implementation.
-
+Replies, quotes and reposts keep their own authors. Long inputs are split without dropping text; their segment answers remain available and the aggregate requires review. News-feed excerpts retain their incomplete-source marker. The package never fetches a source URL during inference.
 
 ## Quickstart
 
-Python 3.10 or newer. Install the product and its pinned local inference dependency:
+Python 3.10 or newer:
 
 ```bash
 git clone https://github.com/Omniaeye/omnia-news.git
 cd omnia-news
 python -m pip install '.[local]'
 export OMNIA_LAYA_REVISION=55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851
-omnia-news --input examples/input.jsonl
+export OMNIA_NEWS_DATABASE=var/news/decisions.sqlite3
+omnia-news-batch --input examples/input.jsonl --output var/news/first-batch
 ```
 
 PowerShell:
@@ -63,61 +79,95 @@ PowerShell:
 ```powershell
 python -m pip install '.[local]'
 $env:OMNIA_LAYA_REVISION = '55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851'
-omnia-news --input examples/input.jsonl
+$env:OMNIA_NEWS_DATABASE = 'var/news/decisions.sqlite3'
+omnia-news-batch --input examples/input.jsonl --output var/news/first-batch
 ```
 
-Install with `python -m pip install .` when consuming contracts without local
-inference. The optional runtime loads only when an item needs model evaluation.
-Repeated identical requests reuse recorded inference while each evaluation records its final disposition. The included input is a small contract example; replace it with source observations from your adapter.
+The revision pins model weights. Language routing selects the English or multilingual checkpoint from that revision. GPU use is configured with `OMNIA_LAYA_DEVICE=cuda`; CPU is the default. Original source collection and actual publication remain owned by the caller.
 
-Run `omnia-news --catalog` to inspect the metadata schema without configuring or loading a model. For large input files, the CLI reports a resumable byte offset at its batch boundary; see [Operations](docs/OPERATIONS.md) for `--offset-bytes` and recovery behavior.
-
-## Choose your policy
+### Evaluate and retrieve
 
 ```python
-from omnia_news.pipeline import process
-from omnia_news.policy import NewsPolicy
+from omnia_news._engine.ledger import DecisionLedger
+from omnia_news.config import Config
+from omnia_news.intelligence import assess, lookup
+from omnia_news.news_runtime import RoutedNews
 
-result = process(
-    event, ledger, backend,
-    min_probability=0.90,
-    policy=NewsPolicy(
-        allow_operational_suppression=False,
-        allowed_languages=("en", "pt-BR"),
-        max_age_seconds=86400,
-    ),
-)
+config = Config.from_env()
+ledger = DecisionLedger(config.runtime.database)
+try:
+    result = assess(event, ledger, RoutedNews(config.runtime))
+    stored = lookup(ledger, result["identity"]["key"])
+    relevance = stored["tasks"]["relevance"]
+finally:
+    ledger.close()
 ```
 
-Age is measured between the supplied `published_at` and `observed_at`, so replay is stable. The language allowlist checks supplied labels; it does not detect language or switch models. These settings are also available to the CLI through environment variables. See [Parameters](docs/PARAMETERS.md) for exact names, defaults and metadata effects.
+`event` is a normalized source record. The exact contract and a complete batch workflow are in [Intelligence API](docs/INTELLIGENCE.md).
 
+## Confidence and policy
 
-## Inspect every decision
+OMNIA retains the full probability distribution, maximum answer probability and the model's original confidence statistic. These are different measurements. The initial acceptance threshold is `0.8` per task; it is a configurable policy value, not a measured accuracy claim.
 
-Every completed result includes an `assessment_id`, UTC `evaluated_at`, final `action` and `reason`, readable decision notes, the applied policy and fingerprints of the supplied and normalized event. Model-backed results additionally include answers, probability gates, checkpoint provenance, runtime hashes, timing and cache status. Metadata gates can complete with `decision: null` because no model assessment was requested.
+A threshold change reuses stored inference. Content, context, question or model changes receive a new inference identity. [Confidence](docs/CONFIDENCE.md) defines calibration, independent review and task-level reporting.
 
-Backend failures record a failed final assessment with the exception type before propagating the error. Primary text, context text and free-form metadata values are not copied into the ledger. Identifiers, authors and evidence URLs remain application data: store the ledger privately and retain source archives separately.
+```json
+{"relevance": 0.9, "tone": 0.85, "token_reference": 0.95}
+```
 
-| Read next | Purpose |
+Save this object as a threshold file and pass `--thresholds path/to/thresholds.json`. Values are examples of policy configuration, not calibrated recommendations.
+
+### Search the archive
+
+```bash
+omnia-news-query --database var/news/decisions.sqlite3 --reference-kind author_handle --value @account
+```
+
+Search by author ID, observed handle, publication URL, mentioned URL, cashtag or address reference. Results retain primary/quoted attribution and content version. The query command opens the database read-only and does not load a model.
+
+## Token and trading context
+
+A consuming application supplies a network-scoped asset and the exact publication URLs associated with it. `trading_context.for_token` retrieves cached assessments, checks age and source issues, and returns only accepted dimensions for current records.
+
+Robinhood, BSC and Solana are explicit network families. The relationship is retained as caller-supplied evidence. A matching name or ticker never establishes official affiliation. News assessments do not authorize orders.
+
+## Measured source context
+
+Character count, byte size, context count and segment count are calculated directly. Source-reported followers, views, likes, replies and reposts are optional. Missing counts are not converted to zero.
+
+Exact-text recurrence records distinct publications, author references and platforms within six hours of an observation. Its baseline is the local assessment archive. Platform accounts, publisher labels and activity actors keep separate attribution. Recurrence does not claim semantic narrative clustering or universal novelty detection.
+
+## Feed filtering
+
+The existing `omnia-news --input examples/input.jsonl` interface remains available. It evaluates informativity and proposes `keep`, `suppress` or `review`.
+
+A bare commit hash can receive a deterministic format decision. A meaningful commit message containing a hash is preserved. Automatic bookkeeping suppression requires both an exact format and an accepted model answer. Archive records are retained.
+
+## Records and operations
+
+A batch freezes its input hash before inference and writes every outcome, including failures. The output includes `freeze.json`, `results.jsonl`, `summary.json` and a SHA-256 manifest. Repeating the same batch reuses successful inference; a different input cannot overwrite the frozen batch.
+
+| Documentation | Contents |
 | --- | --- |
-| [API](docs/API.md) | Input fields, output semantics and callable interface |
-| [Parameters](docs/PARAMETERS.md) | Executable metadata catalog and policy configuration |
-| [Architecture](docs/ARCHITECTURE.md) | Deterministic checks, model boundary and replay |
-| [Operations](docs/OPERATIONS.md) | Environment, limits, failures and recovery |
-| [Validation](docs/VALIDATION.md) | Validation scope and historical inference evidence |
-| [Research](docs/RESEARCH.md) | Primary sources behind the design |
+| [Intelligence API](docs/INTELLIGENCE.md) | Identity, context, cached retrieval and trading integration |
+| [Parameters](docs/PARAMETERS.md) | Metadata types, task criteria and configuration |
+| [Confidence](docs/CONFIDENCE.md) | Probabilities, acceptance and calibration |
+| [Architecture](docs/ARCHITECTURE.md) | Modules, ownership and persistence |
+| [Operations](docs/OPERATIONS.md) | Environment, replay and failure recovery |
+| [Validation](docs/VALIDATION.md) | Software checks and native evaluation records |
+| [Reading the results](docs/READING_THE_RESULTS.md) | Source examples, model answers and application gates |
+| [Research](docs/RESEARCH.md) | Technical references |
 
 ## Build and verify
 
 ```bash
-python -m pip install -e . ruff==0.16.8
+python -m pip install -e . ruff==0.16.8 build
 python -m unittest discover -s tests -v
 ruff check src tests tools
 python tools/verify_snapshot.py
+python -m build
 ```
 
-The tests cover contracts, deterministic policy, controlled backend responses, persistence and recovery. Regression fixtures are **not model-quality benchmarks**. The earlier `docs/verification.json` receipt describes its recorded version and input; it does not validate later code or prove task accuracy. Calibrate automatic routing against reviewed source samples before deployment.
+Contract tests use controlled responses to check software behavior. Native model evaluation is reported separately, with its input selection, revision and observed results.
 
-The product shares its local integration with [OMNIA Trading](https://github.com/Omniaeye/omnia-trading). [Data Stream Multichain](https://github.com/Omniaeye/data-stream-multichain) is a related evidence project; an adapter must supply its observations to this package. No connector is bundled here.
-
-Original OMNIA product code. Laya remains the attributed local decision engine. [Apache-2.0](LICENSE) · [Notices](THIRD_PARTY_NOTICES.md) · [Security](SECURITY.md)
+Copyright 2026 OMNIA EYE Corporation. [Apache-2.0](LICENSE) &middot; [Third-party notices](THIRD_PARTY_NOTICES.md) &middot; [Security](SECURITY.md)

@@ -3,7 +3,7 @@
 """Executable catalog of adapter-supplied metadata; values are not verified claims."""
 from copy import deepcopy
 
-CATALOG_VERSION = 'omnia.news.metadata.v1'
+CATALOG_VERSION = 'omnia.news.metadata.v2'
 
 
 def _field(kind, description, use='provenance', **bounds):
@@ -11,6 +11,20 @@ def _field(kind, description, use='provenance', **bounds):
 
 
 FIELDS = {
+    'source_text_at_limit': _field('boolean', 'The supplied text reaches its known collection limit; completeness needs confirmation.',
+                                  'deterministic_gate'),
+    'source_event_type': _field('string', 'Original collection event type; preserves operational changes separately from source text.',
+                               'deterministic_gate', max_length=100),
+    'author_identity_kind': _field('enum', 'Basis of the primary author reference, not a verification claim.',
+                                  values=['platform_account', 'source_label', 'unknown']),
+    'source_actor': _field('string', 'Source-reported activity actor; not necessarily the content author.', max_length=256),
+    'author_handle': _field('string', 'Observed author handle; native author identity remains separate.', max_length=100),
+    'context_missing': _field('boolean', 'A referenced parent publication is absent from supplied context.', 'deterministic_gate'),
+    'author_followers': _field('integer', 'Observed author follower count, not impressions.', maximum=1000000000000),
+    'view_count': _field('integer', 'Source-reported views at observation time.', maximum=1000000000000),
+    'like_count': _field('integer', 'Source-reported likes at observation time.', maximum=1000000000000),
+    'reply_count': _field('integer', 'Source-reported reply count.', maximum=1000000000000),
+    'repost_count': _field('integer', 'Source-reported repost count.', maximum=1000000000000),
     'source_kind': _field('enum', 'Kind reported by the source adapter.', 'model_context',
                           values=['article', 'post', 'commit', 'release', 'advisory', 'comment']),
     'record_type': _field('enum', 'Relationship to previously published content.', 'deterministic_gate',
