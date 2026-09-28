@@ -23,6 +23,16 @@ Incomplete text, deleted records, missing parent context, retractions and segmen
 
 Threshold changes do not repeat inference in the intelligence path. The underlying ledger is called with a structural floor of zero; consumers must use `tasks.*.status`, not `inference.*.status`, for product acceptance. Inference records retain the exact policy used when they were generated.
 
+Feed eligibility additionally uses `feed_decision`. Exact full-message operational
+formats cannot be promoted by a high model probability. Native noise votes do not
+suppress free-form text. These source checks do not alter the native distribution
+or manufacture a confidence value. Short social fragments below 32 characters,
+without a URL, cashtag or EVM-shaped reference, require review.
+
+The [relevance review](../examples/relevance-review-2026-09-28/README.md) preserves
+the complete follow-up window and assistant-reviewed examples. Its policy checks
+are not a fitted probability calibration or an independent accuracy benchmark.
+
 ## Calibration procedure
 
 1. Freeze publication IDs before looking at answers.

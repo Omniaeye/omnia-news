@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Atomic judgments over attributed source text, with explicit insufficient options."""
 
-VERSION = "omnia.news.intelligence.v1"
+VERSION = "omnia.news.intelligence.v2"
 
 
 def choice(instruction, options):
@@ -14,14 +14,14 @@ def choice(instruction, options):
 
 
 TASKS = {
-    "relevance": choice(
-        "Does the primary text describe an understandable event or idea?",
-        [
-            ("informative", "An understandable event, idea or change."),
-            ("noise", "Only bookkeeping or meaningless identifiers."),
-            ("insufficient", "Not enough text to decide."),
-        ],
-    ),
+    "relevance": {
+        "type": "choice",
+        "instructions": "Classify this text for a news feed.",
+        "criteria": {
+            "informative": "An understandable news item, opinion, question or code change.",
+            "noise": "An empty status, raw identifier, hash or bookkeeping entry.",
+        },
+    },
     "event": choice(
         "What event does the primary text describe?",
         [
@@ -111,3 +111,14 @@ TASKS = {
 }
 
 DEFAULT_THRESHOLDS = {name: 0.8 for name in TASKS}
+
+
+def catalog(version):
+    """Historical receipts remain bound to their original question catalog."""
+    if version == VERSION:
+        return TASKS
+    if version == "omnia.news.intelligence.v1":
+        import json
+        from pathlib import Path
+        return json.loads(Path(__file__).with_name("assessment_tasks_v1.json").read_bytes())
+    raise ValueError("unsupported_assessment_version")

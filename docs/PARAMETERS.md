@@ -113,7 +113,8 @@ The full policy is persisted alongside every final assessment.
 
 ## Intelligence task parameters
 
-The task catalog is `omnia_news.assessment_tasks.TASKS`, version `omnia.news.intelligence.v1`.
+The task catalog is `omnia_news.assessment_tasks.TASKS`, version `omnia.news.intelligence.v2`.
+The original version 1 catalog remains packaged for historical receipt verification.
 This path sends primary author reference, primary text and attributed context to the model.
 Metadata supplies measurements, provenance and source gates; the legacy model-metadata
 projection is not added to this intelligence state.

@@ -8,26 +8,49 @@ import hashlib
 import html
 import json
 from pathlib import Path
-from .assessment_tasks import TASKS
+from .assessment_tasks import VERSION, catalog
 from .batch import summarize, write_json
 from ._engine.ledger import digest, probability, validate_answers
+from .relevance_policy import decide as feed_decision
 
 
 def validate_result(result):
     if result.get("schema") == "omnia.news.batch-failure.v1" and result["status"] == "failed":
         return
-    if set(result["tasks"]) != set(TASKS):
+    tasks = catalog(result["schema"])
+    if set(result["tasks"]) != set(tasks):
         raise ValueError("task_coverage_mismatch")
-    order = [(key, list(task["criteria"])) for key, task in TASKS.items()]
-    question_hash = digest({"questions": TASKS, "order": order})
+    if result["schema"] == VERSION:
+        scopes = {call.get("scope") for call in result["inference"]}
+        if scopes not in ({"primary_text", "attributed_context"}, {"primary_text", "legacy_attributed_context"}):
+            raise ValueError("inference_scope_coverage_mismatch")
+        for scope in scopes:
+            calls = [call for call in result["inference"] if call.get("scope") == scope]
+            if any(call.get("segment_count") != len(calls) for call in calls):
+                raise ValueError("inference_segment_count_mismatch")
+            if sorted(call.get("segment", -1) for call in calls) != list(range(len(calls))):
+                raise ValueError("inference_segment_coverage_mismatch")
     for call in result["inference"]:
+        questions = tasks
+        if result["schema"] == VERSION:
+            scope = call.get("scope")
+            if scope not in {"primary_text", "attributed_context", "legacy_attributed_context"}:
+                raise ValueError("invalid_inference_scope")
+            questions = {name: task for name, task in tasks.items()
+                         if (name == "relevance") == (scope == "primary_text")}
+            if call.get("task_ids") != list(questions):
+                raise ValueError("inference_task_scope_mismatch")
+            if scope == "legacy_attributed_context":
+                questions = catalog("omnia.news.intelligence.v1")
         if "answers" not in call:
             if call.get("status") != "failed":
                 raise ValueError("missing_native_answers")
             continue
+        order = [(key, list(task["criteria"])) for key, task in questions.items()]
+        question_hash = digest({"questions": questions, "order": order})
         if call["questions_sha256"] != question_hash:
             raise ValueError("native_question_catalog_mismatch")
-        checked = validate_answers(call, TASKS)
+        checked = validate_answers(call, questions)
         for key, answer in call["answers"].items():
             if answer.get("answer_probability") != checked[key]["answer_probability"]:
                 raise ValueError("native_probability_mismatch")
@@ -36,7 +59,8 @@ def validate_result(result):
     for name, task in result["tasks"].items():
         probability(task["threshold"])
         answer = task["answer"]
-        native = [c["answers"][name] for c in result["inference"] if "answers" in c]
+        native = [c["answers"][name] for c in result["inference"] if name in c.get("answers", {})
+                  and (result["schema"] != VERSION or name in c["task_ids"])]
         if answer is None:
             if task["status"] == "accepted":
                 raise ValueError("missing_accepted_answer")
@@ -44,7 +68,7 @@ def validate_result(result):
                 raise ValueError("native_segment_answer_mismatch")
             continue
         values = answer["probabilities"]
-        if set(values) != set(TASKS[name]["criteria"]):
+        if set(values) != set(tasks[name]["criteria"]):
             raise ValueError("answer_labels_mismatch")
         for value in values.values():
             probability(value)
@@ -60,6 +84,14 @@ def validate_result(result):
             raise ValueError("invalid_accepted_answer")
         if len(native) != 1 or native[0] != answer:
             raise ValueError("native_answer_mismatch")
+    if result["schema"] == VERSION:
+        relevance = result["tasks"]["relevance"]
+        if result["relevance_checks"]["source_issues"] != result["source_issues"]:
+            raise ValueError("relevance_source_checks_mismatch")
+        if relevance["status"] == "accepted" and relevance.get("review_reasons"):
+            raise ValueError("accepted_relevance_has_review_reasons")
+        if result["feed_decision"] != feed_decision(relevance, result["relevance_checks"]):
+            raise ValueError("feed_decision_mismatch")
 
 
 def verify(directory):
@@ -82,7 +114,8 @@ def verify(directory):
         validate_result(result)
     if summarize(records) != summary:
         raise ValueError("summary_record_mismatch")
-    if json.loads((root / "tasks.json").read_bytes()) != TASKS:
+    versions = {result["schema"] for result in records if result["schema"] != "omnia.news.batch-failure.v1"}
+    if len(versions) != 1 or json.loads((root / "tasks.json").read_bytes()) != catalog(next(iter(versions))):
         raise ValueError("question_catalog_mismatch")
     return {"files_verified": len(manifest["files"]), "records": summary["records"]}
 
@@ -162,10 +195,18 @@ def publish(events, results, output):
             "",
             "A configured acceptance threshold is distinct from measured accuracy.",
         ]
+        if "feed_decision" in result:
+            decision = result["feed_decision"]
+            detail += ["", "## Feed decision", "",
+                       f"**{decision['action']}**: `{decision['reason']}`. Basis: `{decision['basis']}`.", "",
+                       "Native answers remain unchanged when a source-format rule or review gate determines publication eligibility."]
         (root / "records" / (identifier + ".md")).write_text("\n".join(detail) + "\n", encoding="utf-8", newline="\n")
     summary = summarize(results)
     write_json(root / "summary.json", summary)
-    write_json(root / "tasks.json", TASKS)
+    versions = {result["schema"] for result in results if result["schema"] != "omnia.news.batch-failure.v1"}
+    if len(versions) != 1:
+        raise ValueError("mixed_assessment_versions")
+    write_json(root / "tasks.json", catalog(next(iter(versions))))
     with (root / "assessments.csv").open("w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(
             stream,

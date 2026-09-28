@@ -1,0 +1,378 @@
+{
+  "schema": "omnia.news.relevance-review.v1",
+  "reviewer": "assistant source review",
+  "independent_human_gold": false,
+  "selection": "Systematic assistant review of every tenth source from index 40 through 490. Prompt development used disjoint sources. Source-format policy was refined after error inspection; this is a diagnostic review, not an untouched calibration holdout.",
+  "rubric": "Informative: understandable report, change, explanation, opinion or request; not a truth or market-impact judgment. Noise: status labels, handle-only text, merge-only bookkeeping, generated artifact references. Insufficient: a fragment whose subject or change is not identifiable from primary text.",
+  "threshold": 0.8,
+  "records": [
+    {
+      "index": 40,
+      "source_id": "social:2f28e2f47eca079109dc94044bbd42cee2a2d126cc229984cb1ba570ef86d73e",
+      "source_url": "https://x.com/i/status/2103965182942654690",
+      "text_sha256": "b48ff39c2e0f5451b9b29b09c2a74d2760db230749ffd48a6e901cc91fef9a8d",
+      "expected": "noise",
+      "source_input_sha256": "1eca271b3497d48ea82003e458273ee601438ec3e26ce6c239d69cf6492ca161"
+    },
+    {
+      "index": 50,
+      "source_id": "social:e11fcfc395f8d00da06d3eb31eebc5ead68923f698ba2ddf72f9cacb781318cb",
+      "source_url": "https://x.com/i/status/2104673500262814176",
+      "text_sha256": "75a6e90c7240fb55ec3594bfcd010d52f5c6ad8dcf94d873951ef5e84309ba99",
+      "expected": "noise",
+      "source_input_sha256": "bbe932f1672fc1c80a1cf3216b0621ef57f048ff64abe88366a5db8b6c5b56f1"
+    },
+    {
+      "index": 60,
+      "source_id": "social:b660b5c701e9e7fc9d3bbaaefd60e98fe56d182830af24004e728dadcd165e03",
+      "source_url": "https://x.com/i/status/2104673285216854075",
+      "text_sha256": "75a6e90c7240fb55ec3594bfcd010d52f5c6ad8dcf94d873951ef5e84309ba99",
+      "expected": "noise",
+      "source_input_sha256": "904ebdcd87f5d3c34b4874c937757c3a3975518d7524858db8666cd3f5296d16"
+    },
+    {
+      "index": 70,
+      "source_id": "social:2476059ffc136ec47f060a0599431e9060f38d875423af63c3a7ffa113ebda47",
+      "source_url": "https://x.com/i/status/2104673000511713642",
+      "text_sha256": "91cca0f7765b41b4e7c748ca3330b6495270728a788f34022aec7b780667327a",
+      "expected": "informative",
+      "source_input_sha256": "4299c49333a5c588b41aa5928246a58819fedbccfb404842ad4779c4dab9148b"
+    },
+    {
+      "index": 80,
+      "source_id": "github:nvidia/nemoclaw:a36e41287ea9e93988d4b588693fefa05b01730c",
+      "source_url": "https://github.com/NVIDIA/NemoClaw/commit/a36e41287ea9e93988d4b588693fefa05b01730c",
+      "text_sha256": "8ac69251c9cdc9e1b663f951cbb663afe0f363178e502988de739d3a85e0fc5d",
+      "expected": "informative",
+      "source_input_sha256": "345a860c4f374a099aad32d1ab8da39160f5e4bd1fb08d7f98b947a22eb08167"
+    },
+    {
+      "index": 90,
+      "source_id": "github:aws/agentcore-cli:bb2fa429725058f6b5a42fc8c5d6c4bc9f8deff4",
+      "source_url": "https://github.com/aws/agentcore-cli/commit/bb2fa429725058f6b5a42fc8c5d6c4bc9f8deff4",
+      "text_sha256": "2a79ec281d54cf7d1a725d8b227e3c712b00d3f0fbce21d42eeea7bfdf9014ba",
+      "expected": "informative",
+      "source_input_sha256": "9702f8c07d89f66d9f44b5e1643dbf6843febb5fd316fe3478e8752c0d20ca40"
+    },
+    {
+      "index": 100,
+      "source_id": "social:25f72a8392779d5f4722a29467cc0a506a29a76bb27e3d136fce64d092ea3766",
+      "source_url": "https://x.com/i/status/2104662434585661949",
+      "text_sha256": "713c38bccba39619b583a3d10acc907c5a5d62f266ef89c94b8c9e30d715b7f6",
+      "expected": "insufficient",
+      "source_input_sha256": "bce8341db23ffbeaed503a9fb70ea5ba2405ff12d8cb0207054377c620ee5b48"
+    },
+    {
+      "index": 110,
+      "source_id": "github:google/gvisor:8dc6dbe24f770ff70273a8fb803acbcb3aa715a6",
+      "source_url": "https://github.com/google/gvisor/commit/8dc6dbe24f770ff70273a8fb803acbcb3aa715a6",
+      "text_sha256": "bc1318b6c0bb99ecefbb7f1613b8636246aa6ea5ee82aaacaa8672cf5bd96767",
+      "expected": "informative",
+      "source_input_sha256": "a120cd3236abaa70b97588ede810cc41f5853dd169e29d3705bb1d20525315c3"
+    },
+    {
+      "index": 120,
+      "source_id": "social:d9e7b6f71f36003a3464a1dfec60b551fed5442790b532e57c8460d23b108b22",
+      "source_url": "https://x.com/i/status/2104672331687940478",
+      "text_sha256": "3abf281671ed3749bc7441410d28163a1fed883f42ece6cd272aef48a7038901",
+      "expected": "informative",
+      "source_input_sha256": "27325f076be9c48f79f73205846cc4bf08c80329816ac146c5525aacaa32025f"
+    },
+    {
+      "index": 130,
+      "source_id": "github:nvidia/model-optimizer:e948fc5108214a2f9a0aa0d1939b47f7f26a90db",
+      "source_url": "https://github.com/NVIDIA/Model-Optimizer/commit/e948fc5108214a2f9a0aa0d1939b47f7f26a90db",
+      "text_sha256": "204e8481ad7e0c71b0f1e84180b4e8d3172e04743076f8a6646c277e074f61c6",
+      "expected": "informative",
+      "source_input_sha256": "f66a0589453b39ee38b4d7bbb3fd87ed69b0e4c8a00b0b0452b80db740d8baf1"
+    },
+    {
+      "index": 140,
+      "source_id": "social:bb06ecaef65406521e71db18e4865a1de8a8b8ff52daa6a00d999a2cfa6a1f06",
+      "source_url": "https://x.com/i/status/2104672029706453091",
+      "text_sha256": "1ffc93f0ec71ab099e627423da557b6208e147dc067647b38611c90b827b4a8c",
+      "expected": "insufficient",
+      "source_input_sha256": "67d8004de5d953a868ca2fb62502554ebc47b27e7ec86b93b291956be8fd4a30"
+    },
+    {
+      "index": 150,
+      "source_id": "github:microsoft/sarif-website:10af6dcc390de5b01e2b01e7b1c612450e1437a3",
+      "source_url": "https://github.com/microsoft/sarif-website/commit/10af6dcc390de5b01e2b01e7b1c612450e1437a3",
+      "text_sha256": "94e0e5bc48174d03596f152dfd7cf79f56e7a2326b98f89eba12ea5658b4fd91",
+      "expected": "noise",
+      "source_input_sha256": "4f75f50883f1128f067258cb428bc23f254de993e1b9e00db907d643db2beb9d"
+    },
+    {
+      "index": 160,
+      "source_id": "github:google/tpu-sync:9815fb57a21a88be30cbc29e8bb1017bffec9dd5",
+      "source_url": "https://github.com/google/tpu-sync/commit/9815fb57a21a88be30cbc29e8bb1017bffec9dd5",
+      "text_sha256": "045aee8c038bde80886ff85f13baec64994c004c51eeacd47d7fcc58e5c517e0",
+      "expected": "informative",
+      "source_input_sha256": "3423b4b426727c26585faa606483043e0fa9e244bb5e539ca5edf9e7e5782fb0"
+    },
+    {
+      "index": 170,
+      "source_id": "social:14c2365cbaf76ab8007f6927b05c17d127d9c7abb5a2cb31889b1adf5d471438",
+      "source_url": "https://x.com/i/status/2104671696498176408",
+      "text_sha256": "9321504ef4a26338b4b5ec876e710985215fea75994d1a4f9a1f32c00fd5c2b4",
+      "expected": "insufficient",
+      "source_input_sha256": "e1736ba8a5f572e632c1dcd86636bba6a7ca9992c3e3919d8c77b554274dd374"
+    },
+    {
+      "index": 180,
+      "source_id": "social:de2c56453735a5b346210faa06838e6fa69318f42de3933df3612ca354261f99",
+      "source_url": "https://x.com/i/status/2104671513412878630",
+      "text_sha256": "32ddefaddf0131babb14b04771ff98e7c608e8b7a16df4368b5aaae3b2391ba4",
+      "expected": "informative",
+      "source_input_sha256": "91648437b548cfa590122b9f602e3f11927904877e2c64c5df750cfacee81509"
+    },
+    {
+      "index": 190,
+      "source_id": "github:rocm/therock:ae7339c6f4ce1a00c570199af8ead62db792cb66",
+      "source_url": "https://github.com/ROCm/TheRock/commit/ae7339c6f4ce1a00c570199af8ead62db792cb66",
+      "text_sha256": "9465498e138def92c887741eda738193067b9207f3e80097a2a116292e24c1d6",
+      "expected": "noise",
+      "source_input_sha256": "24b1a90b6600a4a58265ac918f73b09775381eb3115c4f187f6769a261731ac4"
+    },
+    {
+      "index": 200,
+      "source_id": "social:00a525ec2f98ad5224a486321abe10331690d7272427aecdbfd55dc806822d55",
+      "source_url": "https://x.com/i/status/2104671186563313828",
+      "text_sha256": "9681b3a377a3cb4999beb4f94b20eb482746e043f902b14e126f971224af5479",
+      "expected": "informative",
+      "source_input_sha256": "6751a6b233ecf1d54232b2a250fbf205dad3bfb4010e9e2285d3903fecf474dd"
+    },
+    {
+      "index": 210,
+      "source_id": "social:87699c6ee507b8eb12ac9ff115c7a4573c548533b26c27cc3d4f94d58c6eea38",
+      "source_url": "https://x.com/i/status/2104671033873609005",
+      "text_sha256": "a73d652ae1d1bad3fa7cd5b6a63c272a8cc05acdcea9b4da6873977f4794482f",
+      "expected": "insufficient",
+      "source_input_sha256": "0355283e8fe40ead1837f5ef93f31007ec21c76725bc6b49c19ce17a8b57ac79"
+    },
+    {
+      "index": 220,
+      "source_id": "github:nvidia/skillspector:325d4de3da7bd07f2e6f831a1bc8ea2a9f2b4414",
+      "source_url": "https://github.com/NVIDIA/SkillSpector/commit/325d4de3da7bd07f2e6f831a1bc8ea2a9f2b4414",
+      "text_sha256": "911674056094b479e7b9ace697c3dc18f8bbd1933cb6cd9e3cd3532eafb6fac5",
+      "expected": "informative",
+      "source_input_sha256": "22a3e2016025af78e3f569a462eac1ef3c1553b5e2b61a42c750e21bbb37dde1"
+    },
+    {
+      "index": 230,
+      "source_id": "github:rocm/therock:fcbf37c6cfa38db2226fc86f3b8c083f0a9c2bb5",
+      "source_url": "https://github.com/ROCm/TheRock/commit/fcbf37c6cfa38db2226fc86f3b8c083f0a9c2bb5",
+      "text_sha256": "db017e913522640853e2358df28b29e93493792b3e94fc4161e6e65de42eb465",
+      "expected": "informative",
+      "source_input_sha256": "689a49606e2fb9ac8d22bb5b8e17876bb4fe284a7eab6d4dac9188701e1ae265"
+    },
+    {
+      "index": 240,
+      "source_id": "github:facebook/astryx:1780c424935f816eae4bb933c3be4017b352d292",
+      "source_url": "https://github.com/facebook/astryx/commit/1780c424935f816eae4bb933c3be4017b352d292",
+      "text_sha256": "592bac9faff0e5b60ca772ed9b1130324bd069b058396c5f99ede6b11ee100a6",
+      "expected": "noise",
+      "source_input_sha256": "f598fc3b4e5028a1da85bf84b6794bff41b08389340f706dab27afd8f0fe05a9"
+    },
+    {
+      "index": 250,
+      "source_id": "github:aws/agentcore-cli:bb3fcd303cd05dbe9c374efa623deeedc51c6d43",
+      "source_url": "https://github.com/aws/agentcore-cli/commit/bb3fcd303cd05dbe9c374efa623deeedc51c6d43",
+      "text_sha256": "d85bcf3a8ad2ad36eee9747e5e58c4b156c7747eab17aa176e0cc4bfce4bca72",
+      "expected": "informative",
+      "source_input_sha256": "2593159605df2d454b8150bef980c7261323bba95e040c26d81d12577125e8fe"
+    },
+    {
+      "index": 260,
+      "source_id": "information:2783ec0858b9b7fed4c2bf84492ec2d68e48de13b74f24ead4dbbd7d65adc4d7",
+      "source_url": "https://www.fool.com/investing/2026/09/28/not-nvidia-not-amd-broadcoms-custom-silicon-busine/",
+      "text_sha256": "50fefc15785db1e37c4faaeb5d52df22dd7b148459c976f351d538cf2e900245",
+      "expected": "informative",
+      "source_input_sha256": "2c09a3a7c3553c709b872dd83f118dde768f8210bb394c8a5532f666fa65307f"
+    },
+    {
+      "index": 270,
+      "source_id": "github:facebook/astryx:1bebbe2590fe810dd4dbdf2586ea3189c606fe09",
+      "source_url": "https://github.com/facebook/astryx/commit/1bebbe2590fe810dd4dbdf2586ea3189c606fe09",
+      "text_sha256": "4dcd0fbb452c97bc99bd31214f244e99083863f3871b61d1cf5f45a4185c9124",
+      "expected": "noise",
+      "source_input_sha256": "2c6af34934a6ab8e44b1697f857923d7ffca4455a28454105c889d69e341ccb4"
+    },
+    {
+      "index": 280,
+      "source_id": "social:466e7380e632535eaad59cb8c8e12a2319daf6e039b91f828966e6da900ba7ce",
+      "source_url": "https://x.com/i/status/2104669979887181921",
+      "text_sha256": "9894260ecf16026ac9f73965f3d95eb005dbaa633d77cef4c5b8194f5d68e8be",
+      "expected": "informative",
+      "source_input_sha256": "61d75f8afef0cd2da70e2516faacaec7c4f1496830e74e1de56dddd015afc456"
+    },
+    {
+      "index": 290,
+      "source_id": "social:06c8a24b6e8a76e640f8aab11d1991ef8ccfcf9df04d5c2ace80cfff4b207fbc",
+      "source_url": "https://x.com/i/status/2104669846181159029",
+      "text_sha256": "42f9d45b2560978f90911785ac121e0feda48051306ae22a702541e0680a6487",
+      "expected": "informative",
+      "source_input_sha256": "b9d42fa1940bd5efae8af605569ae50c1fe4d9f1ccd8fe0127235bf9ea6c77a1"
+    },
+    {
+      "index": 300,
+      "source_id": "social:f0299f5e164b553627ed0fd3af1505fe3e320ccd04ebfd521b2b0f57d47af07e",
+      "source_url": "https://x.com/i/status/2104669685283520719",
+      "text_sha256": "75a6e90c7240fb55ec3594bfcd010d52f5c6ad8dcf94d873951ef5e84309ba99",
+      "expected": "noise",
+      "source_input_sha256": "a363b636e2fb5a189d2cd60e864ea0e2a53bdf874d64c8779e33ab2fec7a1ed5"
+    },
+    {
+      "index": 310,
+      "source_id": "social:86381b54c71e8fe8cad65d7b9d33c56ab5eb9e8ed746096d7b8e02b9f716b28d",
+      "source_url": "https://x.com/i/status/2104669481050239464",
+      "text_sha256": "b22dc4dbe05d439dc85b13eea169289c7a29bad3d6f24b095790a7e41a7abc58",
+      "expected": "informative",
+      "source_input_sha256": "bbe07d531e34c123bd3d76915f95388dad28bec6f813547bfbad3a7d48d1d57a"
+    },
+    {
+      "index": 320,
+      "source_id": "social:e6821dc1c76192d27e5e07e24b35a1ed2520dec5ff04e071958fb3f47792ea61",
+      "source_url": "https://x.com/i/status/2104597137170252114",
+      "text_sha256": "497673350cb658a8426fe6d0438c9e843c8224c9c2c8a01780d6de68174d494d",
+      "expected": "informative",
+      "source_input_sha256": "38fff92579bcb5baf3c8f07c9a91fbd378447ff2c4eff35a5408092b0d293c80"
+    },
+    {
+      "index": 330,
+      "source_id": "social:388589801613882fdcecac97febf835994df36e326c9dd4c58626b71ffbb4e52",
+      "source_url": "https://x.com/i/status/2104669240225677473",
+      "text_sha256": "b09cd53f059fc00406a9cb13cfd0457f836ced052bc0045712f59f3c2cb0f114",
+      "expected": "noise",
+      "source_input_sha256": "14c61ea57b76613f2b91b87c8886057b64347704b04fc3e44e39cddb3d62527e"
+    },
+    {
+      "index": 340,
+      "source_id": "social:1232fccad202fd44c9d42032737e8286fa7d3bcc7065967192de85c9593fb185",
+      "source_url": "https://x.com/i/status/2104668957521391772",
+      "text_sha256": "75a6e90c7240fb55ec3594bfcd010d52f5c6ad8dcf94d873951ef5e84309ba99",
+      "expected": "noise",
+      "source_input_sha256": "e4ad971e71c4b622fd0b6b23bd0a12cb28cdd0fae1247b62f333b54f103d08ba"
+    },
+    {
+      "index": 350,
+      "source_id": "information:fdd2e9355763f7564f89305135aa1ee8998947e16ef9f71a46e822339c47a8cd",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/costco-just-got-reality-check-202532104.html",
+      "text_sha256": "0e17af5600b0b6e07e27dba40f041b0af77e6082c038d7c100a450918b66e2d8",
+      "expected": "informative",
+      "source_input_sha256": "d07b384c5e3cb6fe99808851eecd1d6a897cfddc1bc7367d3ae965edfed5eadf"
+    },
+    {
+      "index": 360,
+      "source_id": "github:microsoft/agent-framework-go:6583e0a0145167d92ffe12780b85cd74215425bb",
+      "source_url": "https://github.com/microsoft/agent-framework-go/commit/6583e0a0145167d92ffe12780b85cd74215425bb",
+      "text_sha256": "38b3bf87723f7f3c6dcd10cb016ee91971678b635bc78f748388f496c60c08aa",
+      "expected": "informative",
+      "source_input_sha256": "e28d10e09aefcfe2b237b546b2121fad0fbe87e39c2c3511675a3b9c5f576c08"
+    },
+    {
+      "index": 370,
+      "source_id": "social:86f0592974cd719ca968c4f81f82e4b55e146abf2928ce0bdaa133a208333e2a",
+      "source_url": "https://x.com/i/status/2104668451633512850",
+      "text_sha256": "fddef6ebb366a1bb5957583d9e07c467ad6d23d870eca2af7769fc533ea29308",
+      "expected": "informative",
+      "source_input_sha256": "423cb919fe98f53cc4b4f949828a01a2e05f7402266bbc68af68d8ac5bacd15a"
+    },
+    {
+      "index": 380,
+      "source_id": "github:facebook/rebalancer:0b2b5d82e85fda7db1ee0e4b358400914c0fe183",
+      "source_url": "https://github.com/facebook/rebalancer/commit/0b2b5d82e85fda7db1ee0e4b358400914c0fe183",
+      "text_sha256": "cde7049dfb069d412626131ff5b6c622ff9cccb530e7e1bddea61453eab1a3e1",
+      "expected": "informative",
+      "source_input_sha256": "33d29d3eb1b93c9567e0ed22a062ebbeb699e1235b931da126971393fa815a1d"
+    },
+    {
+      "index": 390,
+      "source_id": "github:microsoft/garnet:b45278cde6c1279daccc65ce523efa905b57e818",
+      "source_url": "https://github.com/microsoft/garnet/commit/b45278cde6c1279daccc65ce523efa905b57e818",
+      "text_sha256": "2c89792d0a1ae8a3c09e3d427d1591d1fd8e26a36f667e7344be2998c8970871",
+      "expected": "noise",
+      "source_input_sha256": "805134f46a5d09285901a9ca07e6dc7b01cd754dc8f9ecbdf4ab8a89a8340a60"
+    },
+    {
+      "index": 400,
+      "source_id": "github:aws/aws-sdk-java-v2:bd3cb362b8a91daf5f58e5bd766c50545313335c",
+      "source_url": "https://github.com/aws/aws-sdk-java-v2/commit/bd3cb362b8a91daf5f58e5bd766c50545313335c",
+      "text_sha256": "553a766c8d0024285da8671a914bc61c1bd0bef94398c62487f7b2ee4504820d",
+      "expected": "insufficient",
+      "source_input_sha256": "0007f7d9b9ccd99269ebbd2c4eb4463658d7e4d64c8b16d4075d73807f53faa5"
+    },
+    {
+      "index": 410,
+      "source_id": "social:e4e2bc9f76b0743df1dda94a05f119313d714e541a7b2b23bf625424a4f44b49",
+      "source_url": "https://x.com/i/status/2104667872484278727",
+      "text_sha256": "75a6e90c7240fb55ec3594bfcd010d52f5c6ad8dcf94d873951ef5e84309ba99",
+      "expected": "noise",
+      "source_input_sha256": "c5dfd9fdb5a6e0c87c2a06a883316d3457b037c98f92dd9bd7cf5f6a935a1a22"
+    },
+    {
+      "index": 420,
+      "source_id": "social:140dc17a6d075b6df9c63ae843a008fa75a5ab86676bc833651d205a983bf707",
+      "source_url": "https://x.com/i/status/2104648323479326755",
+      "text_sha256": "19aed021ef7396dcf6b404b41d072546149190fdb65e3eb039abb92c475b532e",
+      "expected": "informative",
+      "source_input_sha256": "5096bec81241deee98402b8e73829a0999857c94ce5441dc7eaf69b8ca0ec5f2"
+    },
+    {
+      "index": 430,
+      "source_id": "social:bef2bd3e195a18cf6b3a40ba53b6ddd82dc9cd9168c8b33595643c9f1d1240b1",
+      "source_url": "https://x.com/i/status/2104667495701647858",
+      "text_sha256": "da91795e26f60195c8fffb10f644fad8ba4239110cf21f089de7d67079aba066",
+      "expected": "informative",
+      "source_input_sha256": "ceac841389ead14f5f107309b31846232267b011519a6e52f76f70e6351be9e9"
+    },
+    {
+      "index": 440,
+      "source_id": "social:ba2300146c934d8336e0f235c8084cf4d97c09164f42b775b18c587031b7a5e2",
+      "source_url": "https://x.com/i/status/2104667472083173739",
+      "text_sha256": "853d2386953a5feacd9ebb1cfc0585d235f33a80cbee4b3a7665e87830d04a02",
+      "expected": "informative",
+      "source_input_sha256": "33c6e206f325d3dc87d331df790bc4243e83ae268be91c76db99d3c608731148"
+    },
+    {
+      "index": 450,
+      "source_id": "social:77aad0a0c35234d7f5f2d696834df88d9da61ab6db6adc0103a4807c51ef801c",
+      "source_url": "https://x.com/i/status/2104667354861019161",
+      "text_sha256": "0771e1842a6a84f08d6c989f33c61df0691c8a6913be3f6af346fdbc2e3e6415",
+      "expected": "informative",
+      "source_input_sha256": "d8f96efe490c504e2b970e1d46750202f809cf5df558eb97b8e711c2dce9488e"
+    },
+    {
+      "index": 460,
+      "source_id": "social:8e8ac86a864e207abe6dc3083b8fefd197f612d49ac300c1b98bf479bf4dc118",
+      "source_url": "https://x.com/i/status/2104666854794924263",
+      "text_sha256": "f20c879465551f0d1457a13d4390d0f1ece456b115d75463169c5d55341b9b1e",
+      "expected": "noise",
+      "source_input_sha256": "efe5acadbc75bd06a7c45a24d6046a4f9dc0728a70c2727ca701c9e1c683e676"
+    },
+    {
+      "index": 470,
+      "source_id": "github:google/meridian:c56865c39a48e1dbf2fc0af4b93e2780bba7bf84",
+      "source_url": "https://github.com/google/meridian/commit/c56865c39a48e1dbf2fc0af4b93e2780bba7bf84",
+      "text_sha256": "2a3cf9daeed16668a986ef3cfc2c79ef3c6be7296eaa1beed93a6c5ea1706954",
+      "expected": "informative",
+      "source_input_sha256": "dddcdd7f4d574b77195f316ef71366712f84d7830ec4d76b3f2a8f60f327c67a"
+    },
+    {
+      "index": 480,
+      "source_id": "github:facebook/idb:195602fc9e8bfe92fd7d60f158870263a10032fe",
+      "source_url": "https://github.com/facebook/idb/commit/195602fc9e8bfe92fd7d60f158870263a10032fe",
+      "text_sha256": "0844823d26ffc4a07aa8e70024e9d93939e6b4f22ae4c0e6ad1bfd70a9a3eac6",
+      "expected": "informative",
+      "source_input_sha256": "0235134637f3f8ab83e7bbeee5d9da42d83df11fd59a95733f3e5bb820d16071"
+    },
+    {
+      "index": 490,
+      "source_id": "social:f3d37ff2adad42a4c3983ff7bbc26a56da71065ea11e2c6f1ddc4d1e068f41ff",
+      "source_url": "https://x.com/i/status/2104666793193423017",
+      "text_sha256": "0b4fd59eca04788be77a9725b5f534093a3d4d3cf8e5ae3eaf6ce162bcac2fdc",
+      "expected": "informative",
+      "source_input_sha256": "1734d10f34d4035cf784e54c3b626b0280902ea549d7a6fc8f263921e2de2f94"
+    }
+  ]
+}

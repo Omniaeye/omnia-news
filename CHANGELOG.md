@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1
+
+- Separate primary-text relevance from attributed context inference.
+- Add explicit feed eligibility, exact-format checks and preserved native conflicts.
+- Reuse verified version 1 receipts for unchanged tasks and retain historical catalogs.
+- Add the complete relevance follow-up window and source-bound review records.
+- Keep the product README focused on the API, with result detail under examples.
+
 ## 0.3.0
 
 - Add ten per-task news assessments, native probabilities and independent acceptance gates.

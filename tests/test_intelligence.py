@@ -29,7 +29,7 @@ class IntelligenceTests(unittest.TestCase):
         item = event()
         first = assess(item, self.ledger, self.backend)
         second = assess(item, self.ledger, self.backend, thresholds={"tone": 0.55})
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
         self.assertEqual(first["tasks"]["tone"]["status"], "needs_review")
         self.assertEqual(first["tasks"]["relevance"]["status"], "accepted")
         self.assertEqual(second["tasks"]["tone"]["status"], "accepted")
@@ -40,7 +40,7 @@ class IntelligenceTests(unittest.TestCase):
         assess(item, self.ledger, self.backend)
         item["observed_at"] = "2026-09-28T21:00:00Z"
         assess(item, self.ledger, self.backend)
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
 
     def test_edit_and_context_change_invalidate_cache(self):
         item = event()
@@ -51,7 +51,7 @@ class IntelligenceTests(unittest.TestCase):
             {"id": "quoted", "relation": "quote", "author": "other", "text": "Launch tomorrow", "url": "https://example.com/context"}
         ]
         assess(item, self.ledger, self.backend)
-        self.assertEqual(self.backend.calls, 3)
+        self.assertEqual(self.backend.calls, 5)
 
     def test_native_ids_ignore_handle_changes_and_alias_domains(self):
         one = publication_identity("x", "https://x.com/old/status/123", "old")
@@ -133,7 +133,7 @@ class IntelligenceTests(unittest.TestCase):
         result = assess(new, self.ledger, self.backend)
         assess(old, self.ledger, self.backend)
         self.assertEqual(lookup(self.ledger, result["identity"]["key"])["measurements"]["author_followers"], 200)
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
 
     def test_batch_recurrence_is_chronological_with_input_order_preserved(self):
         older = event("Same announcement")

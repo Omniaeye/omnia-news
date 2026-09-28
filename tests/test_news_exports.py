@@ -111,7 +111,7 @@ class NewsExportTests(unittest.TestCase):
         first = assess(item, self.ledger, self.backend)
         item["metadata"]["author_followers"] = 200
         second = assess(item, self.ledger, self.backend)
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
         self.assertEqual(first["content_version"], second["content_version"])
         self.assertNotEqual(first["source_input_sha256"], second["source_input_sha256"])
         self.assertEqual(second["measurements"]["author_followers"], 200)
@@ -167,7 +167,7 @@ class NewsExportTests(unittest.TestCase):
         result = assess(item, self.ledger, self.backend)
         found = query(self.root / "news.db", url=item["url"], platform=item["platform"])
         self.assertEqual(found["assessment_id"], result["assessment_id"])
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
         with self.assertRaises(FileNotFoundError):
             query(self.root / "absent.db", identity=result["identity"]["key"])
         self.assertFalse((self.root / "absent.db").exists())
@@ -201,7 +201,7 @@ class NewsExportTests(unittest.TestCase):
         result = assess(item, self.ledger, self.backend)
         self.assertIn("deleted_source", result["source_issues"])
         self.assertTrue(all(t["status"] == "needs_review" for t in result["tasks"].values()))
-        self.assertEqual(self.backend.calls, 1)
+        self.assertEqual(self.backend.calls, 2)
 
     def test_commit_at_collection_text_limit_retains_a_completeness_gate(self):
         item = adapt_feed({

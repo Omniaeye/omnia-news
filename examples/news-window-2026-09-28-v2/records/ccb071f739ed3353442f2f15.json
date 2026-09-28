@@ -1,0 +1,514 @@
+{
+  "publication": {
+    "id": "information:c3bbf81a4a33a6ba2cf3f348366e1110c7bfdf50337d7f33bb132d507a5f6f29",
+    "platform": "news",
+    "url": "https://decrypt.co/379497/citi-stablecoin-payments-coinbase-without-touching-crypto",
+    "author": "finance.yahoo.com",
+    "observed_at": "2026-09-28T20:47:44.300757Z",
+    "published_at": "2026-09-28T20:36:03Z"
+  },
+  "assessment": {
+    "schema": "omnia.news.intelligence.v2",
+    "source": "omnia.news",
+    "source_event_type": "external_news",
+    "identity": {
+      "key": "news:url:1727ab2444deb47ad16d20940494d131e658ec086c65840d4de4e98675693b4d",
+      "native_id": null,
+      "canonical_url": "https://decrypt.co/379497/citi-stablecoin-payments-coinbase-without-touching-crypto",
+      "input_id": "information:c3bbf81a4a33a6ba2cf3f348366e1110c7bfdf50337d7f33bb132d507a5f6f29",
+      "basis": "canonical_url"
+    },
+    "content_version": "624dd72596d38163b54d22c2a47a91f94f02542ee5d8c1918e5f877b3dd8a101",
+    "source_input_sha256": "896de11870e4f4f6a768fc9278a06c3a70b7c5c500554536bbb51dd4b25c9318",
+    "source_url": "https://decrypt.co/379497/citi-stablecoin-payments-coinbase-without-touching-crypto",
+    "author": "finance.yahoo.com",
+    "attribution": {
+      "author_reference": "finance.yahoo.com",
+      "identity_kind": "source_label",
+      "source_actor": null,
+      "independently_verified": false
+    },
+    "observed_at": "2026-09-28T20:47:44.300757Z",
+    "published_at": "2026-09-28T20:36:03Z",
+    "evaluated_at": "2026-09-28T22:19:59.179977+00:00",
+    "language": null,
+    "measurements": {
+      "characters": 257,
+      "utf8_bytes": 259,
+      "context_records": 0,
+      "segments": 2
+    },
+    "references": [],
+    "source_issues": [
+      "incomplete_text"
+    ],
+    "tasks": {
+      "relevance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.8418,
+          "choice": "informative",
+          "model_confidence": 0.3701,
+          "probabilities": {
+            "informative": 0.8418,
+            "noise": 0.1582
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold",
+        "review_reasons": []
+      },
+      "event": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5784,
+          "choice": "technical",
+          "model_confidence": 0.5069,
+          "probabilities": {
+            "incident": 0.0051,
+            "launch": 0.3565,
+            "listing": 0.0101,
+            "other": 0.0194,
+            "partnership": 0.0212,
+            "regulation": 0.0093,
+            "technical": 0.5784
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "claim": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.9822,
+          "choice": "announcement",
+          "model_confidence": 0.9382,
+          "probabilities": {
+            "allegation": 0.0016,
+            "announcement": 0.9822,
+            "correction": 0.0098,
+            "insufficient": 0.0047,
+            "opinion": 0.0008,
+            "question": 0.0009
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "tone": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3149,
+          "choice": "neutral",
+          "model_confidence": 0.081,
+          "probabilities": {
+            "insufficient": 0.3073,
+            "mixed": 0.1938,
+            "negative": 0.0719,
+            "neutral": 0.3149,
+            "positive": 0.1121
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "importance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4296,
+          "choice": "routine",
+          "model_confidence": 0.0719,
+          "probabilities": {
+            "insufficient": 0.1299,
+            "project": 0.1786,
+            "routine": 0.4296,
+            "sector": 0.2619
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "urgency": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.6093,
+          "choice": "none",
+          "model_confidence": 0.229,
+          "probabilities": {
+            "immediate": 0.0834,
+            "insufficient": 0.2025,
+            "none": 0.6093,
+            "scheduled": 0.1047
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "promotion": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3755,
+          "choice": "informational",
+          "model_confidence": 0.0531,
+          "probabilities": {
+            "informational": 0.3755,
+            "insufficient": 0.3076,
+            "mixed": 0.1427,
+            "promotional": 0.1741
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "token_reference": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.7833,
+          "choice": "absent",
+          "model_confidence": 0.3892,
+          "probabilities": {
+            "absent": 0.7833,
+            "explicit": 0.094,
+            "possible": 0.1227
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "narrative_object": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5034,
+          "choice": "absent",
+          "model_confidence": 0.2737,
+          "probabilities": {
+            "absent": 0.5034,
+            "character": 0.0285,
+            "cultural": 0.0908,
+            "person": 0.0442,
+            "product": 0.333
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "context_dependence": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3969,
+          "choice": "insufficient",
+          "model_confidence": 0.0198,
+          "probabilities": {
+            "dependent": 0.2392,
+            "insufficient": 0.3969,
+            "standalone": 0.3639
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      }
+    },
+    "relevance_checks": {
+      "version": "omnia.news.relevance-policy.v2",
+      "format_reason": null,
+      "short_social_fragment": false,
+      "source_issues": [
+        "incomplete_text"
+      ],
+      "native_input": "complete_primary_text"
+    },
+    "feed_decision": {
+      "action": "review",
+      "reason": "source_requires_review",
+      "basis": "source_policy",
+      "policy_version": "omnia.news.relevance-policy.v2",
+      "preserve_archive": true,
+      "publication_authorized": false
+    },
+    "recurrence": {
+      "method": "normalized_exact_text",
+      "text_sha256": "20da2cea190a033764f4acf34f8e0ed6ad61f63b02537e6fe952d9597cad24a9",
+      "window_seconds": 21600,
+      "distinct_publications": 1,
+      "distinct_author_references": 1,
+      "author_basis": "source_supplied_identity_not_verified_people",
+      "platforms": [
+        "news"
+      ],
+      "novelty": "previously_observed",
+      "baseline": "local_assessment_archive_only"
+    },
+    "inference": [
+      {
+        "answers": {
+          "relevance": {
+            "answer_probability": 0.8418,
+            "choice": "informative",
+            "model_confidence": 0.3701,
+            "probabilities": {
+              "informative": 0.8418,
+              "noise": 0.1582
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "3bf5e35ed10da8a2a877227b989bf2af1e20918a13c86ba2139cbaf9742a8c8e",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "input_scope": "primary_text",
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v2"
+        },
+        "evidence": [
+          "https://decrypt.co/379497/citi-stablecoin-payments-coinbase-without-touching-crypto"
+        ],
+        "inference_ms": 296.359,
+        "input_sha256": "bf92d99970b2afa18dc20ac9591e58a6dba75aa5b4282f4655ec0cf1adc34ebe",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T22:17:06.999580+00:00",
+        "questions_sha256": "86a1e7c1b101680cc6d093057eee0f8cc4bbc22f6be6fcaa3ddee27efc26dd3b",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:a8c51a16802bb8755f0c96f84f0db1beaa20edf69a34d187f482da2ff4af7356",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "primary_text",
+        "task_ids": [
+          "relevance"
+        ],
+        "segment": 0,
+        "segment_count": 1
+      },
+      {
+        "answers": {
+          "claim": {
+            "answer_probability": 0.9822,
+            "choice": "announcement",
+            "model_confidence": 0.9382,
+            "probabilities": {
+              "allegation": 0.0016,
+              "announcement": 0.9822,
+              "correction": 0.0098,
+              "insufficient": 0.0047,
+              "opinion": 0.0008,
+              "question": 0.0009
+            },
+            "type": "choice"
+          },
+          "context_dependence": {
+            "answer_probability": 0.3969,
+            "choice": "insufficient",
+            "model_confidence": 0.0198,
+            "probabilities": {
+              "dependent": 0.2392,
+              "insufficient": 0.3969,
+              "standalone": 0.3639
+            },
+            "type": "choice"
+          },
+          "event": {
+            "answer_probability": 0.5784,
+            "choice": "technical",
+            "model_confidence": 0.5069,
+            "probabilities": {
+              "incident": 0.0051,
+              "launch": 0.3565,
+              "listing": 0.0101,
+              "other": 0.0194,
+              "partnership": 0.0212,
+              "regulation": 0.0093,
+              "technical": 0.5784
+            },
+            "type": "choice"
+          },
+          "importance": {
+            "answer_probability": 0.4296,
+            "choice": "routine",
+            "model_confidence": 0.0719,
+            "probabilities": {
+              "insufficient": 0.1299,
+              "project": 0.1786,
+              "routine": 0.4296,
+              "sector": 0.2619
+            },
+            "type": "choice"
+          },
+          "narrative_object": {
+            "answer_probability": 0.5034,
+            "choice": "absent",
+            "model_confidence": 0.2737,
+            "probabilities": {
+              "absent": 0.5034,
+              "character": 0.0285,
+              "cultural": 0.0908,
+              "person": 0.0442,
+              "product": 0.333
+            },
+            "type": "choice"
+          },
+          "promotion": {
+            "answer_probability": 0.3755,
+            "choice": "informational",
+            "model_confidence": 0.0531,
+            "probabilities": {
+              "informational": 0.3755,
+              "insufficient": 0.3076,
+              "mixed": 0.1427,
+              "promotional": 0.1741
+            },
+            "type": "choice"
+          },
+          "relevance": {
+            "answer_probability": 0.4431,
+            "choice": "insufficient",
+            "model_confidence": 0.0655,
+            "probabilities": {
+              "informative": 0.3901,
+              "insufficient": 0.4431,
+              "noise": 0.1668
+            },
+            "type": "choice"
+          },
+          "token_reference": {
+            "answer_probability": 0.7833,
+            "choice": "absent",
+            "model_confidence": 0.3892,
+            "probabilities": {
+              "absent": 0.7833,
+              "explicit": 0.094,
+              "possible": 0.1227
+            },
+            "type": "choice"
+          },
+          "tone": {
+            "answer_probability": 0.3149,
+            "choice": "neutral",
+            "model_confidence": 0.081,
+            "probabilities": {
+              "insufficient": 0.3073,
+              "mixed": 0.1938,
+              "negative": 0.0719,
+              "neutral": 0.3149,
+              "positive": 0.1121
+            },
+            "type": "choice"
+          },
+          "urgency": {
+            "answer_probability": 0.6093,
+            "choice": "none",
+            "model_confidence": 0.229,
+            "probabilities": {
+              "immediate": 0.0834,
+              "insufficient": 0.2025,
+              "none": 0.6093,
+              "scheduled": 0.1047
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "85bfb6c059dab3bf4e5448d5d73a62c5fdaa662aeacaa94e91b59ce5c6bbc957",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v1"
+        },
+        "evidence": [
+          "https://decrypt.co/379497/citi-stablecoin-payments-coinbase-without-touching-crypto"
+        ],
+        "inference_ms": 5117.177,
+        "input_sha256": "d1ead80653901e0645f3d0b0a0b6f574afc7b32893c9b957185a5d33b42b219f",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T21:11:44.582506+00:00",
+        "questions_sha256": "8fb8b01dde5557b46a74aacccfd8770034d3cb9c1e66d0c883e577e42fae6c23",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:88860e64b19cea304a7281909254699d9d65aaaf6e52638493b013ae4889cc06",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "legacy_attributed_context",
+        "task_ids": [
+          "event",
+          "claim",
+          "tone",
+          "importance",
+          "urgency",
+          "promotion",
+          "token_reference",
+          "narrative_object",
+          "context_dependence"
+        ],
+        "segment": 0,
+        "segment_count": 1,
+        "reuse_kind": "prior_assessment",
+        "reused_from": "9c304a54e6f7a0ff9026bf1dc14a570e4253e09a9f14d7f0ddcac67928314333"
+      }
+    ],
+    "execution_authorized": false,
+    "status": "completed",
+    "assessment_id": "b95dd68ea5731c9b34af8a0637fba6c0c2b381538a6e5b7cf0de414ee3553e78"
+  }
+}

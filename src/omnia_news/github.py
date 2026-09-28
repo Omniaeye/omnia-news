@@ -6,9 +6,14 @@ import re
 TRAILER = re.compile(r'^(Signed-off-by|Co-authored-by|Copilot-Session|fbshipit-source-id|PiperOrigin-RevId|Reviewed By|Reviewed-by|Differential Revision):', re.I)
 HASH_ONLY = re.compile(r'[a-fA-F0-9]{7,64}(?:[\s,;]+[a-fA-F0-9]{7,64})*')
 PATTERNS = (
-    r'ci: (?:acquire|release) gh-pages publication turn',
+    r'ci: (?:acquire|claim|release) gh-pages publication turn',
     r'Deploy [a-fA-F0-9]{7,40} to GitHub Pages',
     r'(?:Update|Regenerate) (?:coverage(?: report| badge)?|generated status|build records)',
+    r'add [^\n]+ \(benchmarkdotnet\) benchmark result for [a-fA-F0-9]{40}',
+    r'Visual evidence: pr/\d+/visual/[a-fA-F0-9]{40}/\d+/\d+',
+    r'(?:Deploy|Remove) Storybook preview for PR #\d+',
+    r'Cleaning up docs preview for PR #\d+\.?',
+    r"Merge (?:remote-tracking )?branch '[^'\n]+' into [^\n]+",
 )
 
 

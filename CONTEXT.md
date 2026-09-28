@@ -1,6 +1,18 @@
 # OMNIA News
 
-## Intelligence delivery — 28 September 2026
+## Primary relevance and feed eligibility — 0.3.1
+
+Relevance is a separate primary-text request with its own cache identity.
+Version 1 receipts remain verifiable; unchanged tasks can be reused from a
+source-identical prior assessment. Exact full-message operational formats and
+short-social review guards sit outside native confidence. The new 500-source
+window retains 64 keep, 46 exact-format suppress and 390 review decisions.
+Assistant review of 46 sources found 11 matching decisive actions; this is not
+an independent calibration set. Probability thresholds remain unfitted.
+No production feed or trading activation is part of this delivery.
+
+
+## Intelligence delivery - 28 September 2026
 
 Version 0.3.0 adds ten independent news judgments, publication identity, a persistent
 assessment index, reference lookup, pinned language routing, explicit segmentation,

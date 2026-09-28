@@ -36,6 +36,20 @@ class NewsModel(LocalLaya):
 
         if fits(state):
             return [state]
+        if set(state) == {"text"}:
+            chunks, pending = [], [state["text"]]
+            while pending:
+                text = pending.pop(0)
+                if fits({"text": text}):
+                    chunks.append({"text": text})
+                elif len(text) > 1:
+                    middle = len(text) // 2
+                    pending[0:0] = [text[:middle], text[middle:]]
+                else:
+                    raise ValueError("source_exceeds_context")
+                if len(chunks) + len(pending) > 256:
+                    raise ValueError("segment_budget_exceeded")
+            return chunks
         chunks = []
         parts = [("primary", state["primary_author"], "", state["primary_text"])]
         parts += [("context", c["author"], c["relation"], c["text"]) for c in state["context"]]

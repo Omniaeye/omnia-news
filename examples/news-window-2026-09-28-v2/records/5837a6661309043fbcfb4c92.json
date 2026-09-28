@@ -1,0 +1,510 @@
+{
+  "publication": {
+    "id": "github:facebook/wangle:7f22be91110968e70f70a447db153bc36c3bff21",
+    "platform": "github",
+    "url": "https://github.com/facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21",
+    "author": "facebook/wangle",
+    "observed_at": "2026-09-28T20:29:58.174108Z",
+    "published_at": "2026-09-28T20:23:10Z"
+  },
+  "assessment": {
+    "schema": "omnia.news.intelligence.v2",
+    "source": "omnia.news",
+    "source_event_type": "commit_push",
+    "identity": {
+      "key": "github:facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21",
+      "native_id": "facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21",
+      "canonical_url": "https://github.com/facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21",
+      "input_id": "github:facebook/wangle:7f22be91110968e70f70a447db153bc36c3bff21",
+      "basis": "native_url"
+    },
+    "content_version": "ecd4aba26ed52176b282aa5e79f33176c7703db4468c81a341db8499777892b6",
+    "source_input_sha256": "e154226eddff61bf99397b8327d3bca1cf5f806052263f3dc6c06f4239111a60",
+    "source_url": "https://github.com/facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21",
+    "author": "facebook/wangle",
+    "attribution": {
+      "author_reference": "facebook/wangle",
+      "identity_kind": "source_label",
+      "source_actor": "meta-codesync",
+      "independently_verified": false
+    },
+    "observed_at": "2026-09-28T20:29:58.174108Z",
+    "published_at": "2026-09-28T20:23:10Z",
+    "evaluated_at": "2026-09-28T22:19:58.352477+00:00",
+    "language": null,
+    "measurements": {
+      "characters": 507,
+      "utf8_bytes": 507,
+      "context_records": 0,
+      "segments": 2
+    },
+    "references": [],
+    "source_issues": [],
+    "tasks": {
+      "relevance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.7324,
+          "choice": "informative",
+          "model_confidence": 0.162,
+          "probabilities": {
+            "informative": 0.7324,
+            "noise": 0.2676
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold",
+        "review_reasons": []
+      },
+      "event": {
+        "status": "accepted",
+        "answer": {
+          "answer_probability": 0.9769,
+          "choice": "technical",
+          "model_confidence": 0.9242,
+          "probabilities": {
+            "incident": 0.0045,
+            "launch": 0.0056,
+            "listing": 0.0024,
+            "other": 0.0073,
+            "partnership": 0.0018,
+            "regulation": 0.0015,
+            "technical": 0.9769
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "claim": {
+        "status": "accepted",
+        "answer": {
+          "answer_probability": 0.8632,
+          "choice": "correction",
+          "model_confidence": 0.6592,
+          "probabilities": {
+            "allegation": 0.0198,
+            "announcement": 0.0324,
+            "correction": 0.8632,
+            "insufficient": 0.0365,
+            "opinion": 0.013,
+            "question": 0.0351
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "tone": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.397,
+          "choice": "neutral",
+          "model_confidence": 0.0798,
+          "probabilities": {
+            "insufficient": 0.2146,
+            "mixed": 0.1587,
+            "negative": 0.1392,
+            "neutral": 0.397,
+            "positive": 0.0905
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "importance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.432,
+          "choice": "routine",
+          "model_confidence": 0.0854,
+          "probabilities": {
+            "insufficient": 0.1474,
+            "project": 0.2921,
+            "routine": 0.432,
+            "sector": 0.1285
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "urgency": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.655,
+          "choice": "none",
+          "model_confidence": 0.2754,
+          "probabilities": {
+            "immediate": 0.0945,
+            "insufficient": 0.1694,
+            "none": 0.655,
+            "scheduled": 0.0811
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "promotion": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5226,
+          "choice": "informational",
+          "model_confidence": 0.1238,
+          "probabilities": {
+            "informational": 0.5226,
+            "insufficient": 0.1784,
+            "mixed": 0.1445,
+            "promotional": 0.1545
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "token_reference": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.6923,
+          "choice": "absent",
+          "model_confidence": 0.2457,
+          "probabilities": {
+            "absent": 0.6923,
+            "explicit": 0.1368,
+            "possible": 0.1709
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "narrative_object": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5476,
+          "choice": "absent",
+          "model_confidence": 0.2179,
+          "probabilities": {
+            "absent": 0.5476,
+            "character": 0.0631,
+            "cultural": 0.1183,
+            "person": 0.064,
+            "product": 0.207
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "context_dependence": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5266,
+          "choice": "standalone",
+          "model_confidence": 0.0729,
+          "probabilities": {
+            "dependent": 0.2546,
+            "insufficient": 0.2189,
+            "standalone": 0.5266
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      }
+    },
+    "relevance_checks": {
+      "version": "omnia.news.relevance-policy.v2",
+      "format_reason": null,
+      "short_social_fragment": false,
+      "source_issues": [],
+      "native_input": "complete_primary_text"
+    },
+    "feed_decision": {
+      "action": "review",
+      "reason": "below_probability_threshold",
+      "basis": "native_assessment",
+      "policy_version": "omnia.news.relevance-policy.v2",
+      "preserve_archive": true,
+      "publication_authorized": false
+    },
+    "recurrence": {
+      "method": "normalized_exact_text",
+      "text_sha256": "91a9b8c98ab366f13696cbaa9d61d07ca845212eb951da2a483829096f1027e5",
+      "window_seconds": 21600,
+      "distinct_publications": 10,
+      "distinct_author_references": 10,
+      "author_basis": "source_supplied_identity_not_verified_people",
+      "platforms": [
+        "github"
+      ],
+      "novelty": "previously_observed",
+      "baseline": "local_assessment_archive_only"
+    },
+    "inference": [
+      {
+        "answers": {
+          "relevance": {
+            "answer_probability": 0.7324,
+            "choice": "informative",
+            "model_confidence": 0.162,
+            "probabilities": {
+              "informative": 0.7324,
+              "noise": 0.2676
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "80dcea03c6dc629f1e7e21eb965f788a2bad3306dbf87d732dbf3ae552688499",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "input_scope": "primary_text",
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v2"
+        },
+        "evidence": [
+          "https://github.com/facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21"
+        ],
+        "inference_ms": 479.35,
+        "input_sha256": "9c5573286c8865984686f8bf713ce6d6acbee6a89ebb9487b3c874b5953dfb9b",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T22:15:10.078080+00:00",
+        "questions_sha256": "86a1e7c1b101680cc6d093057eee0f8cc4bbc22f6be6fcaa3ddee27efc26dd3b",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:2ac92cb5bc5503bef9280a29415ed2d21ea72bdc34155285ab30faa8b737326f",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "primary_text",
+        "task_ids": [
+          "relevance"
+        ],
+        "segment": 0,
+        "segment_count": 1
+      },
+      {
+        "answers": {
+          "claim": {
+            "answer_probability": 0.8632,
+            "choice": "correction",
+            "model_confidence": 0.6592,
+            "probabilities": {
+              "allegation": 0.0198,
+              "announcement": 0.0324,
+              "correction": 0.8632,
+              "insufficient": 0.0365,
+              "opinion": 0.013,
+              "question": 0.0351
+            },
+            "type": "choice"
+          },
+          "context_dependence": {
+            "answer_probability": 0.5266,
+            "choice": "standalone",
+            "model_confidence": 0.0729,
+            "probabilities": {
+              "dependent": 0.2546,
+              "insufficient": 0.2189,
+              "standalone": 0.5266
+            },
+            "type": "choice"
+          },
+          "event": {
+            "answer_probability": 0.9769,
+            "choice": "technical",
+            "model_confidence": 0.9242,
+            "probabilities": {
+              "incident": 0.0045,
+              "launch": 0.0056,
+              "listing": 0.0024,
+              "other": 0.0073,
+              "partnership": 0.0018,
+              "regulation": 0.0015,
+              "technical": 0.9769
+            },
+            "type": "choice"
+          },
+          "importance": {
+            "answer_probability": 0.432,
+            "choice": "routine",
+            "model_confidence": 0.0854,
+            "probabilities": {
+              "insufficient": 0.1474,
+              "project": 0.2921,
+              "routine": 0.432,
+              "sector": 0.1285
+            },
+            "type": "choice"
+          },
+          "narrative_object": {
+            "answer_probability": 0.5476,
+            "choice": "absent",
+            "model_confidence": 0.2179,
+            "probabilities": {
+              "absent": 0.5476,
+              "character": 0.0631,
+              "cultural": 0.1183,
+              "person": 0.064,
+              "product": 0.207
+            },
+            "type": "choice"
+          },
+          "promotion": {
+            "answer_probability": 0.5226,
+            "choice": "informational",
+            "model_confidence": 0.1238,
+            "probabilities": {
+              "informational": 0.5226,
+              "insufficient": 0.1784,
+              "mixed": 0.1445,
+              "promotional": 0.1545
+            },
+            "type": "choice"
+          },
+          "relevance": {
+            "answer_probability": 0.5957,
+            "choice": "informative",
+            "model_confidence": 0.1354,
+            "probabilities": {
+              "informative": 0.5957,
+              "insufficient": 0.234,
+              "noise": 0.1703
+            },
+            "type": "choice"
+          },
+          "token_reference": {
+            "answer_probability": 0.6923,
+            "choice": "absent",
+            "model_confidence": 0.2457,
+            "probabilities": {
+              "absent": 0.6923,
+              "explicit": 0.1368,
+              "possible": 0.1709
+            },
+            "type": "choice"
+          },
+          "tone": {
+            "answer_probability": 0.397,
+            "choice": "neutral",
+            "model_confidence": 0.0798,
+            "probabilities": {
+              "insufficient": 0.2146,
+              "mixed": 0.1587,
+              "negative": 0.1392,
+              "neutral": 0.397,
+              "positive": 0.0905
+            },
+            "type": "choice"
+          },
+          "urgency": {
+            "answer_probability": 0.655,
+            "choice": "none",
+            "model_confidence": 0.2754,
+            "probabilities": {
+              "immediate": 0.0945,
+              "insufficient": 0.1694,
+              "none": 0.655,
+              "scheduled": 0.0811
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "98fcd3e30b226b45121e4b1af1915db96b9aab7ff325053f4996f4549f50cc26",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v1"
+        },
+        "evidence": [
+          "https://github.com/facebook/wangle/commit/7f22be91110968e70f70a447db153bc36c3bff21"
+        ],
+        "inference_ms": 9075.782,
+        "input_sha256": "4106c00ebfff2b3f63c29d337bcf7c15d8de1a365cfc6d737d14ce1220777af5",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T21:38:20.491005+00:00",
+        "questions_sha256": "8fb8b01dde5557b46a74aacccfd8770034d3cb9c1e66d0c883e577e42fae6c23",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:63b8c460ddd5b70152d5ef1ebba93beb02b2d45c9f5a5e41282195c09c2f10bc",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "legacy_attributed_context",
+        "task_ids": [
+          "event",
+          "claim",
+          "tone",
+          "importance",
+          "urgency",
+          "promotion",
+          "token_reference",
+          "narrative_object",
+          "context_dependence"
+        ],
+        "segment": 0,
+        "segment_count": 1,
+        "reuse_kind": "prior_assessment",
+        "reused_from": "5d64ddbe36c747ebed59e6be71ff8ea9d70af1d7f10683daf7fbac2472c9f221"
+      }
+    ],
+    "execution_authorized": false,
+    "status": "completed",
+    "assessment_id": "33e2291d3b7c4941e7c047c8f59e8fa98a4a39d015a71113ee71a140508b33ef"
+  }
+}

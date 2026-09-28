@@ -36,6 +36,21 @@ Long text is split by exact character boundaries until each segment fits the tok
 
 ## Cached retrieval
 
+Version 2 evaluates relevance separately over `{"text": primary_text}`. The other
+nine tasks receive attributed primary and context records. Each inference receipt
+records its scope, task IDs and segment index. Editing a quote invalidates the
+context assessment while retaining an unchanged primary-text relevance result.
+
+`feed_decision` reports `keep`, `suppress` or `review` with its reason and basis.
+Exact operational formats are evaluated independently of native probabilities.
+Short social fragments and incomplete sources require review. An accepted native
+noise answer cannot suppress free-form prose. `preserve_archive` remains true;
+`publication_authorized` remains false until the consuming application applies its policy.
+
+For feed eligibility, use `feed_decision`, not the maximum probability or an
+individual task status. Source format can conflict with a high-confidence answer;
+`tasks.relevance.review_reasons` retains that conflict without changing the answer.
+
 ```python
 stored = lookup(ledger, identity_key)
 historical = lookup(ledger, identity_key, content_version)
@@ -60,12 +75,30 @@ packet = for_token(
 
 The caller supplies the asset and its source references. Output carries the relationship basis, assessment ID, content version, age and accepted task values. Missing or expired news is explicit. The news library does not assert that the author endorsed the token and does not generate or authorize an order.
 
+Version 2 records also carry their feed decision. Review and suppressed records
+return no accepted trading tasks, even if an individual native answer has high
+probability. The full source assessment remains available through `lookup`.
+
 ## Batch records
 
 ```bash
 omnia-news-batch --input sources.jsonl --output var/news/window
 omnia-news-batch --input capture.json --capture --output var/news/feed-window
 ```
+
+Refresh relevance from an existing version 1 batch while retaining unchanged tasks:
+
+```bash
+omnia-news-batch --input sources.jsonl --prior-assessments var/news/v1/results.jsonl --output var/news/v2
+```
+
+The inputs must have the same order and complete source hashes. The prior assessment
+ID, original task catalog and native distributions are verified before reuse.
+Inherited receipts keep their original IDs, hashes and model configuration, plus
+`reuse_kind=prior_assessment` and `reused_from`. Their old relevance answer remains
+in the historical receipt but does not participate in the new relevance decision.
+Fresh requests execute both task groups. Old casebooks remain verifiable against
+their version 1 catalog.
 
 The feed adapter accepts an OMNIA capture containing `rows[].payload`. It projects supplied source text, native references and available reply context. Website/news feed content is marked as an excerpt. It performs no provider requests.
 The existing commit collector bounds descriptions to 4,000 characters. A captured

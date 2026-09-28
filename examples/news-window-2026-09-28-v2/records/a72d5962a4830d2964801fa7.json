@@ -1,0 +1,514 @@
+{
+  "publication": {
+    "id": "information:f6341aa2a82c09aa37a6b821e03380c5e955e06a10028b0e35731ecc7b801601",
+    "platform": "news",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-just-put-record-150-204137056.html",
+    "author": "finance.yahoo.com",
+    "observed_at": "2026-09-28T20:47:31.170049Z",
+    "published_at": "2026-09-28T20:41:37Z"
+  },
+  "assessment": {
+    "schema": "omnia.news.intelligence.v2",
+    "source": "omnia.news",
+    "source_event_type": "external_news",
+    "identity": {
+      "key": "news:url:80321373a5abcbbdcfc925b34a1a623429e841e1a8cf7b7860d59d21d19931be",
+      "native_id": null,
+      "canonical_url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-just-put-record-150-204137056.html",
+      "input_id": "information:f6341aa2a82c09aa37a6b821e03380c5e955e06a10028b0e35731ecc7b801601",
+      "basis": "canonical_url"
+    },
+    "content_version": "a24748c4c87ba224bdbe42dfbb25d8edebe2f92af32604df21de2b0bcd923b62",
+    "source_input_sha256": "72d40ad0e44ef9c0100631d12844d83a9b55eeb649f2a62cd59f3edb13e694e1",
+    "source_url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-just-put-record-150-204137056.html",
+    "author": "finance.yahoo.com",
+    "attribution": {
+      "author_reference": "finance.yahoo.com",
+      "identity_kind": "source_label",
+      "source_actor": null,
+      "independently_verified": false
+    },
+    "observed_at": "2026-09-28T20:47:31.170049Z",
+    "published_at": "2026-09-28T20:41:37Z",
+    "evaluated_at": "2026-09-28T22:19:59.154977+00:00",
+    "language": null,
+    "measurements": {
+      "characters": 201,
+      "utf8_bytes": 201,
+      "context_records": 0,
+      "segments": 2
+    },
+    "references": [],
+    "source_issues": [
+      "incomplete_text"
+    ],
+    "tasks": {
+      "relevance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.8051,
+          "choice": "informative",
+          "model_confidence": 0.2883,
+          "probabilities": {
+            "informative": 0.8051,
+            "noise": 0.1949
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold",
+        "review_reasons": []
+      },
+      "event": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4783,
+          "choice": "technical",
+          "model_confidence": 0.2576,
+          "probabilities": {
+            "incident": 0.0573,
+            "launch": 0.1283,
+            "listing": 0.2346,
+            "other": 0.0632,
+            "partnership": 0.0132,
+            "regulation": 0.0252,
+            "technical": 0.4783
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "claim": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.9662,
+          "choice": "announcement",
+          "model_confidence": 0.9027,
+          "probabilities": {
+            "allegation": 0.0042,
+            "announcement": 0.9662,
+            "correction": 0.026,
+            "insufficient": 0.0024,
+            "opinion": 0.0005,
+            "question": 0.0007
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "tone": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.6648,
+          "choice": "negative",
+          "model_confidence": 0.322,
+          "probabilities": {
+            "insufficient": 0.0764,
+            "mixed": 0.1082,
+            "negative": 0.6648,
+            "neutral": 0.0978,
+            "positive": 0.0527
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "importance": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4052,
+          "choice": "project",
+          "model_confidence": 0.071,
+          "probabilities": {
+            "insufficient": 0.1047,
+            "project": 0.4052,
+            "routine": 0.2152,
+            "sector": 0.2749
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "urgency": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4117,
+          "choice": "none",
+          "model_confidence": 0.0524,
+          "probabilities": {
+            "immediate": 0.244,
+            "insufficient": 0.1892,
+            "none": 0.4117,
+            "scheduled": 0.1552
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "promotion": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.3468,
+          "choice": "promotional",
+          "model_confidence": 0.0298,
+          "probabilities": {
+            "informational": 0.2797,
+            "insufficient": 0.2186,
+            "mixed": 0.1549,
+            "promotional": 0.3468
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "token_reference": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.4923,
+          "choice": "explicit",
+          "model_confidence": 0.0617,
+          "probabilities": {
+            "absent": 0.3135,
+            "explicit": 0.4923,
+            "possible": 0.1942
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "narrative_object": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.7378,
+          "choice": "product",
+          "model_confidence": 0.4589,
+          "probabilities": {
+            "absent": 0.1492,
+            "character": 0.0193,
+            "cultural": 0.0498,
+            "person": 0.0439,
+            "product": 0.7378
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      },
+      "context_dependence": {
+        "status": "needs_review",
+        "answer": {
+          "answer_probability": 0.5062,
+          "choice": "insufficient",
+          "model_confidence": 0.0646,
+          "probabilities": {
+            "dependent": 0.2033,
+            "insufficient": 0.5062,
+            "standalone": 0.2905
+          },
+          "type": "choice"
+        },
+        "segment_answers": [],
+        "threshold": 0.8,
+        "calibration": "unfitted_policy_threshold"
+      }
+    },
+    "relevance_checks": {
+      "version": "omnia.news.relevance-policy.v2",
+      "format_reason": null,
+      "short_social_fragment": false,
+      "source_issues": [
+        "incomplete_text"
+      ],
+      "native_input": "complete_primary_text"
+    },
+    "feed_decision": {
+      "action": "review",
+      "reason": "source_requires_review",
+      "basis": "source_policy",
+      "policy_version": "omnia.news.relevance-policy.v2",
+      "preserve_archive": true,
+      "publication_authorized": false
+    },
+    "recurrence": {
+      "method": "normalized_exact_text",
+      "text_sha256": "b504ff9718ded40228e79769bf9d87861543546da8f454cf2e5834845b92c665",
+      "window_seconds": 21600,
+      "distinct_publications": 1,
+      "distinct_author_references": 1,
+      "author_basis": "source_supplied_identity_not_verified_people",
+      "platforms": [
+        "news"
+      ],
+      "novelty": "previously_observed",
+      "baseline": "local_assessment_archive_only"
+    },
+    "inference": [
+      {
+        "answers": {
+          "relevance": {
+            "answer_probability": 0.8051,
+            "choice": "informative",
+            "model_confidence": 0.2883,
+            "probabilities": {
+              "informative": 0.8051,
+              "noise": 0.1949
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "8d62674a0bed5ea0e117c510ff48c227325de7834044288dd76542af1cd06f51",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "input_scope": "primary_text",
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v2"
+        },
+        "evidence": [
+          "https://finance.yahoo.com/markets/stocks/articles/nvidia-just-put-record-150-204137056.html"
+        ],
+        "inference_ms": 282.099,
+        "input_sha256": "b1884ee9c441cff99466c47a2725d643a29dbd2587b9d75cf01538a20c665530",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T22:17:02.319581+00:00",
+        "questions_sha256": "86a1e7c1b101680cc6d093057eee0f8cc4bbc22f6be6fcaa3ddee27efc26dd3b",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:8e47e454a1a1e28ae3f4b470f178a658300fbdc9a8e9c954334bf117109a6770",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "primary_text",
+        "task_ids": [
+          "relevance"
+        ],
+        "segment": 0,
+        "segment_count": 1
+      },
+      {
+        "answers": {
+          "claim": {
+            "answer_probability": 0.9662,
+            "choice": "announcement",
+            "model_confidence": 0.9027,
+            "probabilities": {
+              "allegation": 0.0042,
+              "announcement": 0.9662,
+              "correction": 0.026,
+              "insufficient": 0.0024,
+              "opinion": 0.0005,
+              "question": 0.0007
+            },
+            "type": "choice"
+          },
+          "context_dependence": {
+            "answer_probability": 0.5062,
+            "choice": "insufficient",
+            "model_confidence": 0.0646,
+            "probabilities": {
+              "dependent": 0.2033,
+              "insufficient": 0.5062,
+              "standalone": 0.2905
+            },
+            "type": "choice"
+          },
+          "event": {
+            "answer_probability": 0.4783,
+            "choice": "technical",
+            "model_confidence": 0.2576,
+            "probabilities": {
+              "incident": 0.0573,
+              "launch": 0.1283,
+              "listing": 0.2346,
+              "other": 0.0632,
+              "partnership": 0.0132,
+              "regulation": 0.0252,
+              "technical": 0.4783
+            },
+            "type": "choice"
+          },
+          "importance": {
+            "answer_probability": 0.4052,
+            "choice": "project",
+            "model_confidence": 0.071,
+            "probabilities": {
+              "insufficient": 0.1047,
+              "project": 0.4052,
+              "routine": 0.2152,
+              "sector": 0.2749
+            },
+            "type": "choice"
+          },
+          "narrative_object": {
+            "answer_probability": 0.7378,
+            "choice": "product",
+            "model_confidence": 0.4589,
+            "probabilities": {
+              "absent": 0.1492,
+              "character": 0.0193,
+              "cultural": 0.0498,
+              "person": 0.0439,
+              "product": 0.7378
+            },
+            "type": "choice"
+          },
+          "promotion": {
+            "answer_probability": 0.3468,
+            "choice": "promotional",
+            "model_confidence": 0.0298,
+            "probabilities": {
+              "informational": 0.2797,
+              "insufficient": 0.2186,
+              "mixed": 0.1549,
+              "promotional": 0.3468
+            },
+            "type": "choice"
+          },
+          "relevance": {
+            "answer_probability": 0.4086,
+            "choice": "insufficient",
+            "model_confidence": 0.0193,
+            "probabilities": {
+              "informative": 0.3468,
+              "insufficient": 0.4086,
+              "noise": 0.2446
+            },
+            "type": "choice"
+          },
+          "token_reference": {
+            "answer_probability": 0.4923,
+            "choice": "explicit",
+            "model_confidence": 0.0617,
+            "probabilities": {
+              "absent": 0.3135,
+              "explicit": 0.4923,
+              "possible": 0.1942
+            },
+            "type": "choice"
+          },
+          "tone": {
+            "answer_probability": 0.6648,
+            "choice": "negative",
+            "model_confidence": 0.322,
+            "probabilities": {
+              "insufficient": 0.0764,
+              "mixed": 0.1082,
+              "negative": 0.6648,
+              "neutral": 0.0978,
+              "positive": 0.0527
+            },
+            "type": "choice"
+          },
+          "urgency": {
+            "answer_probability": 0.4117,
+            "choice": "none",
+            "model_confidence": 0.0524,
+            "probabilities": {
+              "immediate": 0.244,
+              "insufficient": 0.1892,
+              "none": 0.4117,
+              "scheduled": 0.1552
+            },
+            "type": "choice"
+          }
+        },
+        "decision_id": "39b8093a73d77007ef11a1d42cf672fbaaadc87f0419df54e06adc1f07457db9",
+        "engine": {
+          "backend": "laya.local",
+          "configuration": {
+            "device": "cpu",
+            "head_max_len": 192,
+            "max_len": 512,
+            "model": "english",
+            "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851",
+            "threads": 4
+          },
+          "dependencies": {
+            "numpy": "2.4.6",
+            "torch": "2.14.0",
+            "transformers": "5.17.0"
+          },
+          "integration_sha256": "b17f01ba34cea30a0ec8cdf713df78596379f2b81af0a12f9993dd666e573cb1",
+          "laya_version": "0.3.20",
+          "precision": {
+            "LAYA_CPU_AMP": "",
+            "LAYA_CUDA_AMP": "",
+            "LAYA_MPS_AMP_MIN_ROWS": ""
+          },
+          "runtime_sha256": "759b16a75931cfa0c1a80d2c0a38081849b270a38695530d270b4c5df99a0b3a",
+          "task_version": "omnia.news.intelligence.v1"
+        },
+        "evidence": [
+          "https://finance.yahoo.com/markets/stocks/articles/nvidia-just-put-record-150-204137056.html"
+        ],
+        "inference_ms": 3926.983,
+        "input_sha256": "a760b5d7550fe6f2d53648bdf0d9fe49a3dbb6a7fafea08699623c3403f0b4a3",
+        "policy": {
+          "min_answer_probability": 0.0
+        },
+        "processed_at": "2026-09-28T20:58:46.950005+00:00",
+        "questions_sha256": "8fb8b01dde5557b46a74aacccfd8770034d3cb9c1e66d0c883e577e42fae6c23",
+        "review_questions": [],
+        "schema": "omnia.decision.v1",
+        "source_id": "news:a2b36d33d88c3083ad0b586555798dd03f610cc2e935b7c345bb4c74deb639a9",
+        "status": "accepted",
+        "cache_hit": true,
+        "scope": "legacy_attributed_context",
+        "task_ids": [
+          "event",
+          "claim",
+          "tone",
+          "importance",
+          "urgency",
+          "promotion",
+          "token_reference",
+          "narrative_object",
+          "context_dependence"
+        ],
+        "segment": 0,
+        "segment_count": 1,
+        "reuse_kind": "prior_assessment",
+        "reused_from": "ae94971536973cb4abf9cd50db705965bfbd80ba44cdc491bf7450aeabd6a5e4"
+      }
+    ],
+    "execution_authorized": false,
+    "status": "completed",
+    "assessment_id": "313c35ad46e3abe0d0c88c4480633397852443a6c8f3943bd4ba3116e743295c"
+  }
+}

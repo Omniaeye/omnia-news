@@ -21,5 +21,6 @@ jobs:
       - run: ruff check src tests tools
       - run: python tools/verify_snapshot.py
       - run: python -m omnia_news.casebook examples/news-window-2026-09-28
+      - run: python -m omnia_news.casebook examples/news-window-2026-09-28-v2
       - run: python -m compileall -q src tests
       - run: python -m build

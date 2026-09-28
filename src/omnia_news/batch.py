@@ -44,6 +44,10 @@ def summarize(results):
         "inference_records": len(calls),
         "native_answers": sum(len(c["answers"]) for c in calls),
         "cache_hits": sum(bool(c.get("cache_hit")) for c in calls),
+        **({"feed_decisions": dict(Counter(row["feed_decision"]["action"] for row in results if "feed_decision" in row)),
+            "retained_prior_calls": sum(c.get("reuse_kind") == "prior_assessment" for c in calls),
+            "active_native_answers": sum(len(c.get("task_ids", c["answers"])) for c in calls)}
+           if any("feed_decision" in row for row in results) else {}),
         "models": dict(
             Counter(c["engine"].get("configuration", {}).get("model", c["engine"].get("backend", "unspecified")) for c in calls)
         ),
@@ -59,7 +63,9 @@ def summarize(results):
     }
 
 
-def run(events, output, ledger, backend, *, thresholds=None):
+def run(events, output, ledger, backend, *, thresholds=None, prior_assessments=None):
+    if prior_assessments is not None and len(prior_assessments) != len(events):
+        raise ValueError("prior_batch_coverage_mismatch")
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     freeze = {
@@ -84,7 +90,8 @@ def run(events, output, ledger, backend, *, thresholds=None):
     with (output / "results.partial.jsonl").open("w", encoding="utf-8", newline="\n") as stream:
         for processed, (index, event) in enumerate(sorted(enumerate(events), key=chronology), 1):
             try:
-                result = assess(event, ledger, backend, thresholds=thresholds)
+                result = assess(event, ledger, backend, thresholds=thresholds,
+                                prior_assessment=None if prior_assessments is None else prior_assessments[index])
             except Exception as exc:
                 result = {
                     "schema": "omnia.news.batch-failure.v1",
@@ -147,6 +154,7 @@ def main():
     parser.add_argument("--capture", action="store_true", help="Input is an OMNIA feed capture with rows[].payload")
     parser.add_argument("--output", required=True)
     parser.add_argument("--thresholds", help="JSON object mapping task IDs to probability thresholds")
+    parser.add_argument("--prior-assessments", help="Version 1 results.jsonl for the identical ordered input; reuse unchanged native tasks")
     args = parser.parse_args()
     path = Path(args.input)
     config = Config.from_env()
@@ -154,7 +162,8 @@ def main():
     ledger = DecisionLedger(config.runtime.database)
     try:
         thresholds = json.loads(Path(args.thresholds).read_bytes()) if args.thresholds else None
-        result = run(events, args.output, ledger, RoutedNews(config.runtime), thresholds=thresholds)
+        prior = load_events(args.prior_assessments, max_records=config.max_records) if args.prior_assessments else None
+        result = run(events, args.output, ledger, RoutedNews(config.runtime), thresholds=thresholds, prior_assessments=prior)
         print(json.dumps(result, ensure_ascii=True))
         return 1 if result["statuses"].get("failed") else 0
     finally:

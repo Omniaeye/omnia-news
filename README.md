@@ -11,22 +11,15 @@ OMNIA NEWS evaluates source content and stores the result against the original p
 
 The package combines ten JEV/LAYA judgments, 43 optional metadata fields, attributed reply and quote context, publication identity, and a persistent decision ledger. The local engine runs through [OMNIA Laya](https://github.com/Omniaeye/omnia-laya).
 
-## Source window
+## Examples
 
-**500 source records. 5,530 native answers. Complete records for every assessment.**
-
-The September 28 casebook covers 273 X records, 219 GitHub records and eight news
-excerpts. Every task retains its answer, probability, acceptance result and source
-reference. Replaying all 553 text/segment evaluations reused the cache without a
-new model call.
-
-[Inspect the records](examples/news-window-2026-09-28/README.md) · [Read the results](docs/READING_THE_RESULTS.md) · [Measurements and acceptance](docs/VALIDATION.md#native-source-window--28-september-2026)
+[Browse the examples](examples/README.md) for publication records, native answers and evaluation details.
 
 ## Assessments
 
 | Dimension | Answers | Application |
 | --- | --- | --- |
-| Relevance | Informative, noise, insufficient | Prioritize understandable information |
+| Relevance | Informative, noise | Identify readable content in the primary text |
 | Event | Launch, partnership, listing, incident, regulation, technical, other | Organize the reported event |
 | Claim | Announcement, opinion, question, allegation, correction, insufficient | Distinguish a report from an author's interpretation |
 | Tone | Positive, negative, neutral, mixed, insufficient | Describe the primary text's overall tone |
@@ -38,6 +31,8 @@ new model call.
 | Context dependence | Standalone, dependent, insufficient | Identify content that relies on another publication |
 
 Each dimension has its own answer, probability distribution and acceptance threshold. A weak tone assessment does not invalidate a strong relevance assessment. `accepted`, `needs_review`, `insufficient` and `failed` describe each task independently.
+
+Relevance reads the author's own text in a separate request. Quote context cannot turn an empty status into an informative publication. Source completeness and missing context have their own checks.
 
 Importance describes the reported event. It is not a forecast of price movement. Narrative subject classifies a category; it does not invent a name or resolve an asset from a ticker.
 

@@ -1,5 +1,28 @@
 # Validation
 
+## Relevance and feed eligibility — 0.3.1
+
+The [complete follow-up window](../examples/news-window-2026-09-28-v2/README.md)
+uses separate primary-text relevance input and preserves unchanged version 1
+receipts for other tasks. All 500 sources completed. The feed policy produced
+64 keep, 46 exact-format suppress and 390 review outcomes at the unchanged 0.8
+threshold. The final replay reused all native receipts.
+
+The [source review](../examples/relevance-review-2026-09-28/README.md) retains
+assistant annotations and every decision. Its 11 decisive outcomes matched the
+review; 35 remained review. This is diagnostic evidence, not independent human
+ground truth or fitted probability calibration. Native false positives and
+format-policy overrides remain visible in the source records.
+
+Fresh evaluation and immediate cache replay were also checked on three captured
+sources: an English news post, a GitHub change and a Chinese post. Each fresh
+assessment executed two scoped calls; each repeated assessment reused both.
+The software checks cover scope isolation, prior-record integrity, cache reuse,
+exact-format boundaries and blocked trading-context export for suppressed sources.
+
+The version 0.3.0 measurements below describe the original catalog and remain
+historical records.
+
 ## Version 0.3.0
 
 The local suite passed **85 tests**, Ruff, runtime fingerprint checks, casebook

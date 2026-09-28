@@ -44,15 +44,18 @@ def for_token(ledger, token, publications, *, now=None, max_age_seconds=3600):
             continue
         age = (now - timestamp(result["published_at"] or result["observed_at"])).total_seconds()
         usable = 0 <= age <= max_age_seconds and not result["source_issues"] and result["status"] == "completed"
+        feed = result.get("feed_decision")
+        eligible = usable and (feed is None or feed["action"] == "keep")
         signals.append(
             {
                 "identity": key,
                 "assessment_id": result["assessment_id"],
                 "content_version": result["content_version"],
-                "status": "current" if usable else "unavailable_or_stale",
+                "status": "current" if eligible else "feed_policy_review" if usable else "unavailable_or_stale",
                 "age_seconds": age,
                 "relationship": "caller_supplied_publication_reference",
-                "tasks": {k: v["answer"] for k, v in result["tasks"].items() if usable and v["status"] == "accepted"},
+                "tasks": {k: v["answer"] for k, v in result["tasks"].items() if eligible and v["status"] == "accepted"},
+                "feed_decision": feed,
             }
         )
     return {"schema": "omnia.news.trading-context.v1", "token": dict(token), "signals": signals, "execution_authorized": False}
